@@ -1,39 +1,50 @@
 {
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/pre-edit-check.js"
+          }
+        ]
+      }
+    ],
     "UserPromptSubmit": [
       {
-        "matcher": "(?i)(backend|api|server|route|database|db|prisma|endpoint|middleware|auth|jwt|redis|postgresql)",
+        "matcher": "(?i)(backend|api|server|route|database|db|prisma|endpoint|middleware|auth|jwt|redis|postgresql|백엔드|서버|데이터베이스)",
         "hooks": [
           {
             "type": "command",
-            "command": "echo '=== 백엔드 매뉴얼 로드 ===' && cat docs/manuals/BACKEND_MANUAL.md"
+            "command": "echo '=== [키워드 감지: 백엔드] 매뉴얼 로드 ===' && cat docs/manuals/BACKEND_MANUAL.md"
           }
         ]
       },
       {
-        "matcher": "(?i)(frontend|component|screen|react native|expo|ui|화면|컴포넌트|navigation|style|zustand|query)",
+        "matcher": "(?i)(frontend|component|screen|react native|expo|ui|화면|컴포넌트|navigation|style|zustand|query|프론트|모바일)",
         "hooks": [
           {
             "type": "command",
-            "command": "echo '=== 프론트엔드 매뉴얼 로드 ===' && cat docs/manuals/FRONTEND_MANUAL.md"
+            "command": "echo '=== [키워드 감지: 프론트엔드] 매뉴얼 로드 ===' && cat docs/manuals/FRONTEND_MANUAL.md"
           }
         ]
       },
       {
-        "matcher": "(?i)(ai|claude|llm|recommendation|추천|personali|프로파일|profile|google places|여행지 추천)",
+        "matcher": "(?i)(\\bai\\b|claude|llm|recommendation|추천|personali|프로파일|profile|google places|여행지 추천|프롬프트|prompt)",
         "hooks": [
           {
             "type": "command",
-            "command": "echo '=== AI 통합 매뉴얼 로드 ===' && cat docs/manuals/AI_INTEGRATION_MANUAL.md"
+            "command": "echo '=== [키워드 감지: AI 통합] 매뉴얼 로드 ===' && cat docs/manuals/AI_INTEGRATION_MANUAL.md"
           }
         ]
       },
       {
-        "matcher": "(?i)(기능 추가|새로운 기능|feature|implement|새 화면|phase|단계)",
+        "matcher": "(?i)(기능 추가|새로운 기능|새 기능|feature|implement|새 화면|phase|단계|구현)",
         "hooks": [
           {
             "type": "command",
-            "command": "echo '=== 현재 Phase 확인 ===' && cat docs/00_PROJECT_PLAN.md | head -80"
+            "command": "echo '=== [의도 감지: 기능 추가] Phase 범위 확인 ===' && head -100 docs/00_PROJECT_PLAN.md"
           }
         ]
       },
@@ -42,7 +53,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '=== 현재 할 일 목록 ===' && cat docs/02_TODO.md"
+            "command": "echo '=== 현재 TODO ===' && cat docs/02_TODO.md"
           }
         ]
       }
@@ -53,7 +64,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo \"[$(date '+%Y-%m-%d %H:%M:%S')] 파일 수정됨\" >> .claude/modified_files.log"
+            "command": "node .claude/hooks/track-file.js"
           }
         ]
       }
@@ -64,7 +75,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo ''\necho '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'\necho '✓ 작업 완료 전 셀프 체크리스트'\necho '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'\necho '□ TypeScript 에러 없음?'\necho '□ API 호출에 try-catch 있음?'\necho '□ 환경변수 코드에 직접 작성 안 함?'\necho '□ 요청하지 않은 기능 추가 안 함?'\necho '□ docs/02_TODO.md 업데이트 함?'\necho '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'"
+            "command": "node .claude/hooks/quality-check.js"
           }
         ]
       }
