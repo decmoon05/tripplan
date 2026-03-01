@@ -5,21 +5,22 @@
 
 ---
 
-## 현재 상태: 🔧 시스템 구축 완료, 개발 환경 세팅 필요
+## 현재 상태: 🚀 개발 환경 세팅 완료, Phase 1 백엔드 기초 세팅 진행 중
 
 ---
 
 ## Phase 0 — 개발 환경 세팅
 
-- [ ] Node.js 설치 확인 (v18+)
-- [ ] Expo CLI 설치
-- [ ] PostgreSQL 설치 또는 Supabase 클라우드 세팅
-- [ ] Redis 설치 또는 Upstash 클라우드 세팅
-- [ ] Anthropic API 키 발급
-- [ ] Google Places API 키 발급
-- [ ] 모노레포 초기 구조 생성 (package.json, apps/, packages/)
-- [ ] .env.example 파일 생성
-- [ ] .gitignore 설정
+- [x] Node.js 설치 확인 (v22.18.0)
+- [x] Expo CLI 설치 (v55.0.14)
+- [x] Supabase 프로젝트 생성 → Session Pooler URL 연결 완료 (aws-1-ap-northeast-2, 서울)
+- [ ] Upstash Redis 생성 → REDIS 키 발급 (Phase 1 이후에 해도 됨)
+- [x] Anthropic API 키 → .env 설정 완료
+- [ ] Google Places API 키 발급 → .env에 입력 (Google Cloud Console에서 직접 발급)
+- [x] 모노레포 초기 구조 생성 (package.json, apps/mobile, packages/api, packages/shared)
+- [x] .env.example 파일 생성
+- [x] .gitignore 설정
+- [x] git 초기화 + 첫 커밋
 
 ---
 
