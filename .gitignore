@@ -1,0 +1,36 @@
+# 환경변수 (절대 커밋 금지)
+.env
+.env.local
+.env.*.local
+
+# 의존성
+node_modules/
+*/node_modules/
+
+# 빌드 결과물
+dist/
+build/
+.expo/
+*.apk
+*.ipa
+
+# 로그
+*.log
+npm-debug.log*
+.claude/modified_files.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# TypeScript
+*.tsbuildinfo
+
+# Expo
+.expo-shared/
+web-build/

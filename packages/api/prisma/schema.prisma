@@ -1,0 +1,111 @@
+// Prisma 스키마 - TripWise DB 구조
+// 변경 후: npm run db:push (Supabase에 적용)
+// 변경 후: npm run db:generate (Prisma Client 재생성)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 사용자
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  profile UserProfile?
+  trips   Trip[]
+
+  @@map("users")
+}
+
+// 사용자 성향 프로파일
+model UserProfile {
+  id              String   @id @default(cuid())
+  userId          String   @unique @map("user_id")
+  personalityData Json     @map("personality_data") // 프로파일링 답변 JSON
+  interests       String[] // ["anime", "golf", "photography"]
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_profiles")
+}
+
+// 여행
+model Trip {
+  id          String    @id @default(cuid())
+  userId      String    @map("user_id")
+  destination String
+  startDate   DateTime? @map("start_date")
+  endDate     DateTime? @map("end_date")
+  companions  String    // "solo" | "couple" | "friends" | "family"
+  status      String    @default("draft") // "draft" | "confirmed" | "completed"
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  user   User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  days   TripDay[]
+  issues TravelIssue[]
+
+  @@map("trips")
+}
+
+// 여행 일별 일정
+model TripDay {
+  id        String   @id @default(cuid())
+  tripId    String   @map("trip_id")
+  dayNumber Int      @map("day_number")
+  date      DateTime?
+
+  trip   Trip        @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  places TripPlace[]
+
+  @@map("trip_days")
+}
+
+// 일정 내 장소
+model TripPlace {
+  id              String @id @default(cuid())
+  tripDayId       String @map("trip_day_id")
+  googlePlaceId   String @map("google_place_id")
+  order           Int
+  durationMinutes Int    @default(60) @map("duration_minutes")
+  notes           String?
+
+  day TripDay @relation(fields: [tripDayId], references: [id], onDelete: Cascade)
+
+  @@map("trip_places")
+}
+
+// 장소 캐시 (Google Places API 결과 저장)
+model PlaceCache {
+  id           String   @id @default(cuid())
+  googlePlaceId String  @unique @map("google_place_id")
+  cachedData   Json     @map("cached_data")
+  expiresAt    DateTime @map("expires_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("place_cache")
+}
+
+// 여행 이슈 (공사, 휴무 등)
+model TravelIssue {
+  id          String   @id @default(cuid())
+  tripId      String   @map("trip_id")
+  placeId     String?  @map("place_id")
+  issueType   String   @map("issue_type") // "construction" | "closure" | "event" | "safety"
+  description String
+  severity    String   @default("warning") // "info" | "warning" | "critical"
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  trip Trip @relation(fields: [tripId], references: [id], onDelete: Cascade)
+
+  @@map("travel_issues")
+}

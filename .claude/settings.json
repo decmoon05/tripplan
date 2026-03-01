@@ -1,0 +1,73 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "(?i)(backend|api|server|route|database|db|prisma|endpoint|middleware|auth|jwt|redis|postgresql)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '=== 백엔드 매뉴얼 로드 ===' && cat docs/manuals/BACKEND_MANUAL.md"
+          }
+        ]
+      },
+      {
+        "matcher": "(?i)(frontend|component|screen|react native|expo|ui|화면|컴포넌트|navigation|style|zustand|query)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '=== 프론트엔드 매뉴얼 로드 ===' && cat docs/manuals/FRONTEND_MANUAL.md"
+          }
+        ]
+      },
+      {
+        "matcher": "(?i)(ai|claude|llm|recommendation|추천|personali|프로파일|profile|google places|여행지 추천)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '=== AI 통합 매뉴얼 로드 ===' && cat docs/manuals/AI_INTEGRATION_MANUAL.md"
+          }
+        ]
+      },
+      {
+        "matcher": "(?i)(기능 추가|새로운 기능|feature|implement|새 화면|phase|단계)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '=== 현재 Phase 확인 ===' && cat docs/00_PROJECT_PLAN.md | head -80"
+          }
+        ]
+      },
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '=== 현재 할 일 목록 ===' && cat docs/02_TODO.md"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"[$(date '+%Y-%m-%d %H:%M:%S')] 파일 수정됨\" >> .claude/modified_files.log"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo ''\necho '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'\necho '✓ 작업 완료 전 셀프 체크리스트'\necho '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'\necho '□ TypeScript 에러 없음?'\necho '□ API 호출에 try-catch 있음?'\necho '□ 환경변수 코드에 직접 작성 안 함?'\necho '□ 요청하지 않은 기능 추가 안 함?'\necho '□ docs/02_TODO.md 업데이트 함?'\necho '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'"
+          }
+        ]
+      }
+    ]
+  }
+}
