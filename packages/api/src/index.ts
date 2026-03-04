@@ -1,25 +1,46 @@
-import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
+import { env } from './utils/env';
+import { errorHandler } from './middlewares/errorHandler';
+import { authRouter } from './routes/authRoutes';
+import { profileRouter } from './routes/profileRoutes';
+import { tripRouter } from './routes/tripRoutes';
+import { placeRouter } from './routes/placeRoutes';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 // 미들웨어
-app.use(cors());
-app.use(express.json());
+app.use(cors({
+  origin: env.NODE_ENV === 'production'
+    ? ['https://tripwise.app']
+    : true,  // dev에서 모든 origin 허용하되 credentials 호환
+  credentials: true,
+}));
+app.use(express.json({ limit: '1mb' }));
 
-// 헬스체크 (서버가 살아있는지 확인)
+// 헬스체크
 app.get('/health', (_req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+  res.json({
+    success: true,
+    data: {
+      status: 'ok',
+      timestamp: new Date().toISOString(),
+      environment: env.NODE_ENV,
+    },
+  });
 });
 
-// TODO: 라우터 추가 예정
-// app.use('/api/v1/auth', authRouter);
-// app.use('/api/v1/profile', profileRouter);
-// app.use('/api/v1/trips', tripRouter);
+// API 라우터
+app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/profile', profileRouter);
+app.use('/api/v1/trips', tripRouter);
+app.use('/api/v1/places', placeRouter);
 
-app.listen(PORT, () => {
-  console.log(`✅ TripWise API 서버 실행 중: http://localhost:${PORT}`);
-  console.log(`   헬스체크: http://localhost:${PORT}/health`);
+// 에러 핸들러 (반드시 마지막 미들웨어)
+app.use(errorHandler);
+
+app.listen(env.PORT, () => {
+  console.log(`TripWise API running: http://localhost:${env.PORT}`);
+  console.log(`  Health: http://localhost:${env.PORT}/health`);
+  console.log(`  Environment: ${env.NODE_ENV}`);
 });
