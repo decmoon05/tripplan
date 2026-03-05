@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import { createHash } from 'crypto';
 import { env } from './env';
 import { JwtPayload, TokenPair } from '../types/auth';
 import { AppError } from '../middlewares/errorHandler';
@@ -6,6 +7,14 @@ import { AppError } from '../middlewares/errorHandler';
 const JWT_ALGORITHM = 'HS256' as const;
 const ACCESS_TOKEN_EXPIRES = '15m';
 const REFRESH_TOKEN_EXPIRES = '7d';
+
+/** 리프레시 토큰 만료 기간 (밀리초) — DB 저장 시 사용 */
+export const REFRESH_TOKEN_EXPIRES_MS = 7 * 24 * 60 * 60 * 1000; // 7일
+
+/** SHA-256 해시 (리프레시 토큰 DB 저장용, bcrypt보다 빠름) */
+export function hashToken(token: string): string {
+  return createHash('sha256').update(token).digest('hex');
+}
 
 export function generateTokens(payload: JwtPayload): TokenPair {
   const accessToken = jwt.sign(payload, env.JWT_SECRET, {

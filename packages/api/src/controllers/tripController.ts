@@ -1,15 +1,7 @@
 import { Request, Response } from 'express';
 import * as tripService from '../services/tripService';
-import { createTripSchema, updateTripPlacesSchema, tripIdParamSchema } from '../types/validations';
-import { AppError } from '../middlewares/errorHandler';
-
-/** 인증된 사용자 ID를 안전하게 추출 */
-function getUserId(req: Request): string {
-  if (!req.user) {
-    throw new AppError('AUTH_REQUIRED', 401, '인증이 필요합니다.');
-  }
-  return req.user.userId;
-}
+import { createTripSchema, updateTripPlacesSchema, tripIdParamSchema, paginationSchema } from '../types/validations';
+import { getUserId } from '../utils/auth';
 
 /** POST /api/v1/trips — 여행 생성 + AI 일정 자동 생성 */
 export async function createTrip(req: Request, res: Response): Promise<void> {
@@ -23,13 +15,15 @@ export async function createTrip(req: Request, res: Response): Promise<void> {
   });
 }
 
-/** GET /api/v1/trips — 내 여행 목록 */
+/** GET /api/v1/trips?page=1&limit=10 — 내 여행 목록 (페이지네이션) */
 export async function listTrips(req: Request, res: Response): Promise<void> {
-  const trips = await tripService.listTrips(getUserId(req));
+  const pagination = paginationSchema.parse(req.query);
+  const result = await tripService.listTrips(getUserId(req), pagination);
 
   res.status(200).json({
     success: true,
-    data: trips,
+    data: result.trips,
+    pagination: result.pagination,
   });
 }
 

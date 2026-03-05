@@ -5,6 +5,199 @@
 
 ---
 
+## 2026-03-05: Phase 1 백엔드 5단계 — 보안 강화
+
+### 목표
+서버 보안 수준 전면 강화. Rate limiting, 보안 헤더, Refresh Token 회전/폐기, Graceful Shutdown 적용.
+코드 품질 개선 (중복 제거, 페이지네이션).
+
+### 적용한 보안 기능 (6개)
+
+| 기능 | 상세 | 위험도 해결 |
+|------|------|------------|
+| Helmet 보안 헤더 | 12+ 헤더 자동 적용 (CSP, HSTS, X-Frame-Options 등) | WARNING → ✅ |
+| Rate Limiting (3종) | 전역 100/15m, 인증 10/15m, AI 5/1h | CRITICAL → ✅ |
+| Refresh Token 회전 | SHA-256 해시 DB 저장, 갱신 시 기존 폐기 | CRITICAL → ✅ |
+| 로그아웃 | POST /api/v1/auth/logout, 모든 토큰 폐기 | — (신규) |
+| Graceful Shutdown | SIGTERM/SIGINT + Prisma $disconnect + 10초 타임아웃 | WARNING → ✅ |
+| 페이지네이션 | GET /api/v1/trips?page=1&limit=10 + pagination 객체 | INFO → ✅ |
+
+### 새 엔드포인트 (1개)
+
+| Method | Path | Auth | 설명 | 상태코드 |
+|--------|------|:----:|------|---------|
+| POST | `/api/v1/auth/logout` | O | 모든 리프레시 토큰 폐기 | 200 |
+
+### 수정된 엔드포인트 (2개)
+
+| Method | Path | 변경 내용 |
+|--------|------|-----------|
+| POST | `/api/v1/auth/refresh` | DB 해시 검증 + 회전 (기존 토큰 폐기 → 새 토큰 발급) |
+| GET | `/api/v1/trips` | 페이지네이션 추가 (?page=1&limit=10) |
+
+### 생성한 파일 (3개)
+
+```
+packages/api/src/
+├── middlewares/
+│   └── rateLimiter.ts              # 3종 Rate Limiter (전역/인증/AI)
+├── repositories/
+│   └── refreshTokenRepository.ts   # RefreshToken CRUD (해시 저장/조회/폐기)
+└── utils/
+    └── auth.ts                     # getUserId() 공유 헬퍼
+```
+
+### 수정한 파일 (13개)
+
+| 파일 | 변경 내용 |
+|------|-----------|
+| `package.json` | helmet, express-rate-limit 의존성 추가 |
+| `prisma/schema.prisma` | RefreshToken 모델 추가 (tokenHash unique, userId index) |
+| `src/index.ts` | helmet() + globalLimiter + Graceful Shutdown (SIGTERM/SIGINT) |
+| `src/utils/jwt.ts` | hashToken() SHA-256 + REFRESH_TOKEN_EXPIRES_MS 추가 |
+| `src/utils/index.ts` | hashToken, REFRESH_TOKEN_EXPIRES_MS, getUserId export 추가 |
+| `src/services/authService.ts` | 토큰 해시 DB 저장, 회전, logout 함수 추가 |
+| `src/controllers/authController.ts` | logout 핸들러 추가, getUserId 공유화 |
+| `src/routes/authRoutes.ts` | authLimiter + logout 라우트 추가 |
+| `src/routes/tripRoutes.ts` | aiLimiter 적용 (POST만) |
+| `src/controllers/tripController.ts` | getUserId 공유화, 페이지네이션 |
+| `src/controllers/profileController.ts` | getUserId 공유화 |
+| `src/controllers/placeController.ts` | getUserId 공유화 |
+| `src/types/validations.ts` | paginationSchema + PaginationInput 추가 |
+| `src/services/tripService.ts` | listTrips 페이지네이션 (skip/take + count) |
+| `src/repositories/tripRepository.ts` | findByUserId(skip, take) + countByUserId 추가 |
+
+### Rate Limiting 설계
+
+| 리미터 | 대상 | 제한 | 목적 |
+|--------|------|------|------|
+| globalLimiter | 모든 엔드포인트 | IP당 100회/15분 | DDoS 방어 |
+| authLimiter | /api/v1/auth/* | IP당 10회/15분 | 브루트포스 방어 |
+| aiLimiter | POST /api/v1/trips | IP당 5회/1시간 | Claude API 비용 보호 |
+
+### Refresh Token 회전 흐름
+
+```
+1. 로그인/회원가입 → JWT 발급 + SHA-256 해시 DB 저장
+2. refresh 요청 → JWT 서명 검증 + DB 해시 조회 (폐기 여부 확인)
+3. 검증 통과 → 기존 해시 revoke + 새 JWT 발급 + 새 해시 저장
+4. 폐기된 토큰 재사용 → REFRESH_TOKEN_REVOKED 에러
+5. 로그아웃 → 해당 사용자의 모든 토큰 폐기 (revokeAllByUserId)
+```
+
+### 테스트 결과
+
+| 테스트 케이스 | 기대 | 결과 |
+|--------------|------|------|
+| Helmet 헤더 적용 | CSP, HSTS, X-Frame-Options 등 | ✅ |
+| X-Powered-By 제거 | 헤더 없음 | ✅ |
+| 전역 Rate Limit 헤더 | RateLimit-Limit: 100 | ✅ |
+| 인증 Rate Limit 헤더 | RateLimit-Limit: 10 | ✅ |
+| 회원가입 + 토큰 발급 | 성공 | ✅ |
+| Refresh 회전 (1차) | 새 토큰 발급 | ✅ |
+| 폐기된 토큰 재사용 | REFRESH_TOKEN_REVOKED | ✅ |
+| 로그인 → 로그아웃 | 200 "로그아웃 되었습니다" | ✅ |
+| 로그아웃 후 refresh | REFRESH_TOKEN_REVOKED | ✅ |
+| 페이지네이션 (page=1, limit=5) | pagination 객체 반환 | ✅ |
+| TypeScript 컴파일 | 에러 없음 | ✅ |
+
+---
+
+## 2026-03-05: Phase 1 백엔드 4단계 — 장소 API + Google Places (New) 통합
+
+### 목표
+Google Places API (New)를 사용한 장소 검색/상세 조회 API 구현.
+캐시 우선 전략, 일일 사용량 관리, API 키 보호까지 포함.
+
+### 만든 엔드포인트 (3개)
+
+| Method | Path | Auth | 설명 | 상태코드 |
+|--------|------|:----:|------|---------|
+| GET | `/api/v1/places/search` | O | 장소 검색 (Google Text Search + 캐시 폴백) | 200 |
+| GET | `/api/v1/places/:id` | O | 장소 상세 (Google Details + 캐시 폴백) | 200 / 404 |
+| GET | `/api/v1/places/photo` | O | 사진 프록시 (API 키 보호) | 200 / 400 / 502 |
+
+### 생성한 파일 (4개)
+
+```
+packages/api/src/
+├── services/
+│   ├── googlePlacesService.ts   # Google Places API (New) 클라이언트 + 사용량 카운터
+│   └── placeService.ts          # 장소 비즈니스 로직 (캐시 우선 전략)
+├── controllers/
+│   └── placeController.ts       # 장소 요청/응답 + 사진 프록시
+└── routes/
+    └── placeRoutes.ts           # /api/v1/places/* (authenticate 적용)
+```
+
+### 수정한 파일 (3개)
+
+| 파일 | 변경 내용 |
+|------|-----------|
+| `types/validations.ts` | placeIdParamSchema, placeSearchQuerySchema 추가 |
+| `repositories/placeCacheRepository.ts` | searchByText 추가 (ILIKE, 와일드카드 이스케이프) |
+| `index.ts` | placeRouter import + `/api/v1/places` 등록 |
+
+### Google Places API 전환 (Legacy → New)
+
+| 항목 | Legacy | New |
+|------|--------|-----|
+| 인증 | URL `key=` 파라미터 | `X-Goog-Api-Key` 헤더 |
+| 검색 | GET `/textsearch/json` | POST `/places:searchText` |
+| 상세 | GET `/details/json` | GET `/places/{id}` |
+| 응답 필드 | `name`, `geometry.location` | `displayName.text`, `location.latitude` |
+| 가격 | 문자열 없음 (`0~4` 숫자) | `PRICE_LEVEL_INEXPENSIVE` 등 enum |
+| 필드 제어 | `fields=` 파라미터 | `X-Goog-FieldMask` 헤더 |
+
+### 비용 관리 (월 10,000원 이하 목표)
+
+| API | 일일 한도 | 비용/건 | 관리 방식 |
+|-----|----------|---------|-----------|
+| SearchText | 170건 | $32/1000 | 메모리 카운터 + 80% 경고 |
+| GetPlace | 180건 | $17/1000 | 메모리 카운터 + 100% 캐시 폴백 |
+| GetPhoto | 20건 | $7/1000 | 상세 조회에서만 사용 |
+
+- Field Mask로 불필요 필드 제외 → SKU 비용 절감
+- 검색 결과는 사진 미포함 (일 20건 제한 대응)
+- 7일 캐시 → 동일 장소 반복 조회 시 API 호출 없음
+
+### 보안 리뷰 (2회) 및 수정사항
+
+| 이슈 | 심각도 | 수정 내용 |
+|------|--------|-----------|
+| buildPhotoUrl에 API 키 포함 → 클라이언트 노출 | CRITICAL | 서버 프록시 엔드포인트로 전환 (/api/v1/places/photo) |
+| Place ID path traversal (`../admin`) | WARNING | validatePlaceId 정규식 검증 ([A-Za-z0-9_-]+) |
+| Photo ref path traversal (`../../etc/passwd`) | WARNING | 정규식 패턴 매칭 (places/.../photos/...) |
+| 캐시 에러 로그에 DB 연결 정보 포함 가능 | WARNING | err.message만 출력 |
+| buildPlaceFromCache name/category 미검증 | WARNING | ?? 기본값 적용 (name→googlePlaceId, category→'attraction') |
+| ILIKE 와일드카드 주입 (`%`, `_`) | WARNING | escapeLike 함수 (1차 리뷰에서 수정) |
+| fetch 타임아웃 없음 | WARNING | AbortController 10초 타임아웃 (1차 리뷰에서 수정) |
+
+### 발견 및 해결한 버그
+
+| 버그 | 원인 | 해결 |
+|------|------|------|
+| MaxClientsInSessionMode | cacheSearchResults에서 Promise.all 20건 동시 upsert | for...of 순차 처리 |
+| 사진 프록시 라우트 미매칭 | 서버 미재시작 (tsx 핫리로드 미지원) | 서버 재시작 후 정상 동작 |
+
+### 테스트 결과
+
+| 테스트 케이스 | 기대 | 결과 |
+|--------------|------|------|
+| 검색 `tokyo ramen` (limit=5) | Google 소스 + 5건 | ✅ |
+| 검색 `paris cafe` (limit=2) | Google 소스 + 2건 | ✅ |
+| 검색 `osaka sushi` (limit=3) | Google 소스 + 3건 | ✅ |
+| 검색 `kyoto temple` (limit=1) | Google 소스 + 1건 | ✅ |
+| 상세 조회 (실제 Google Place ID) | Google → 캐시 저장 | ✅ |
+| 캐시 히트 (같은 ID 재조회) | 캐시에서 즉시 반환 | ✅ |
+| photoUrl API 키 미포함 | `AIza` 없음 (SAFE) | ✅ |
+| Path traversal (`../admin`) | 차단 | ✅ |
+| Photo ref traversal (`../../etc/passwd`) | INVALID_PHOTO_REF | ✅ |
+| Photo ref 누락 | VALIDATION_ERROR: ref Required | ✅ |
+| 캐시 순차 쓰기 (MaxClients 에러) | 해결됨 | ✅ |
+
+---
+
 ## 2024-03-04: Phase 1 백엔드 3단계 — 여행 API + AI 통합
 
 ### 목표
@@ -268,53 +461,60 @@ packages/api/src/
 
 ---
 
-## 파일 구조 현황 (Phase 1 백엔드 1~3단계)
+## 파일 구조 현황 (Phase 1 백엔드 1~6단계)
 
 ```
 packages/api/
 ├── prisma/
-│   └── schema.prisma              # 7 모델 (User, UserProfile, Trip, TripDay, TripPlace, PlaceCache, TravelIssue)
+│   └── schema.prisma              # 8 모델 (+RefreshToken ◆)
 ├── src/
-│   ├── index.ts                   # Express 앱 엔트리 (authRouter, profileRouter, tripRouter 등록)
+│   ├── index.ts                   # Express 앱 + helmet + globalLimiter + Graceful Shutdown ◆
 │   ├── types/
 │   │   ├── auth.ts                # JWT 타입 + Express 확장
-│   │   └── validations.ts         # Zod 스키마 8개 + 추론 타입 8개
+│   │   └── validations.ts         # Zod 스키마 11개 (+paginationSchema ◆)
 │   ├── data/
 │   │   └── profileQuestions.ts    # 고정 질문 12개
 │   ├── middlewares/
 │   │   ├── auth.ts                # Bearer 인증 미들웨어
-│   │   └── errorHandler.ts        # AppError + ZodError + 500 로깅
+│   │   ├── errorHandler.ts        # AppError + ZodError + 500 로깅
+│   │   └── rateLimiter.ts         # 3종 Rate Limiter (전역/인증/AI) ◆
 │   ├── utils/
 │   │   ├── env.ts                 # 환경변수 Zod 검증
 │   │   ├── prisma.ts              # PrismaClient 싱글톤
-│   │   ├── jwt.ts                 # JWT 생성/검증
+│   │   ├── jwt.ts                 # JWT 생성/검증 + hashToken SHA-256 ◆
+│   │   ├── auth.ts                # getUserId() 공유 헬퍼 ◆
 │   │   ├── asyncWrapper.ts        # Express async 에러 래퍼
 │   │   └── index.ts               # 배럴 export
 │   ├── repositories/
 │   │   ├── userRepository.ts      # User DB 쿼리
 │   │   ├── profileRepository.ts   # UserProfile DB 쿼리
-│   │   ├── tripRepository.ts      # Trip + TripDay + TripPlace 트랜잭션 CRUD ★
-│   │   └── placeCacheRepository.ts # PlaceCache upsert/조회 ★
+│   │   ├── tripRepository.ts      # Trip CRUD + 페이지네이션 ★◆
+│   │   ├── placeCacheRepository.ts # PlaceCache upsert/조회/텍스트검색 ★☆
+│   │   └── refreshTokenRepository.ts # RefreshToken 해시 CRUD ◆
 │   ├── services/
-│   │   ├── authService.ts         # 인증 비즈니스 로직
+│   │   ├── authService.ts         # 인증 + 토큰 회전 + 로그아웃 ◆
 │   │   ├── profileService.ts      # 프로필 비즈니스 로직
-│   │   ├── claudeService.ts       # Claude AI 일정 생성 (프롬프트, 파싱, 재시도) ★
-│   │   └── tripService.ts         # 여행 오케스트레이션 (AI + DB + 접근제어) ★
+│   │   ├── claudeService.ts       # Claude AI 일정 생성 ★
+│   │   ├── tripService.ts         # 여행 오케스트레이션 + 페이지네이션 ★◆
+│   │   ├── googlePlacesService.ts # Google Places API (New) ☆
+│   │   └── placeService.ts        # 장소 비즈니스 로직 ☆
 │   ├── controllers/
-│   │   ├── authController.ts      # 인증 요청/응답
-│   │   ├── profileController.ts   # 프로필 요청/응답
-│   │   └── tripController.ts      # 여행 요청/응답 ★
+│   │   ├── authController.ts      # 인증 + logout ◆
+│   │   ├── profileController.ts   # 프로필 (getUserId 공유화) ◆
+│   │   ├── tripController.ts      # 여행 (페이지네이션 + getUserId 공유화) ★◆
+│   │   └── placeController.ts     # 장소 + 사진 프록시 (getUserId 공유화) ☆◆
 │   └── routes/
-│       ├── authRoutes.ts          # /api/v1/auth/*
+│       ├── authRoutes.ts          # authLimiter + logout 라우트 ◆
 │       ├── profileRoutes.ts       # /api/v1/profile/*
-│       └── tripRoutes.ts          # /api/v1/trips/* ★
-└── package.json                   # express, prisma, bcryptjs, zod, jsonwebtoken, @anthropic-ai/sdk 등
+│       ├── tripRoutes.ts          # aiLimiter 적용 ★◆
+│       └── placeRoutes.ts         # /api/v1/places/* ☆
+└── package.json                   # +helmet, +express-rate-limit ◆
 
 packages/shared/src/
-└── index.ts                       # 공유 타입 (UserProfile, Trip, Place, PlaceCategory 등 25+ 인터페이스)
+└── index.ts                       # 공유 타입 (25+ 인터페이스)
 ```
 
-> ★ = 3단계에서 추가된 파일
+> ★ = 3단계, ☆ = 4단계, ◆ = 5단계 (보안 강화)
 
 ---
 
@@ -336,3 +536,17 @@ packages/shared/src/
 | 접근 제어 | verifyTripAccess(userId, tripId, permission) | Phase 2 TripMember/파티 기능 확장 대비 |
 | 장소 캐시 | PlaceCache 30일 만료 | AI 생성 장소 메타데이터 재사용 |
 | Prompt Injection 방어 | sanitizeInput() + `<user_input>` 태그 격리 | 사용자 입력이 프롬프트 지시문으로 해석되는 것 방지 |
+| Google Places API | New API (v1) | Legacy deprecated 예정, Field Mask 비용 최적화 |
+| 사진 제공 | 서버 프록시 (/api/v1/places/photo) | API 키 클라이언트 노출 방지 |
+| 일일 사용량 관리 | 메모리 기반 카운터 (서버 재시작 시 리셋) | 외부 의존성 없음, Phase 1 충분 |
+| 장소 캐시 전략 | 캐시 우선 → Google 폴백 → 캐시 폴백 → 404 | API 호출 최소화 + 고가용성 |
+| 검색 결과 캐싱 | 순차 upsert (for...of) | Supabase 커넥션 풀 한도 방지 |
+| Place ID 검증 | 정규식 [A-Za-z0-9_-]+ | Path Traversal 방어 |
+| 보안 헤더 | helmet() | 한 줄로 12+ 보안 헤더 자동 적용 |
+| Rate Limiting | express-rate-limit 메모리 저장소 | Phase 1 충분, 프로덕션에서 Redis로 교체 |
+| Rate Limit 분리 | 전역/인증/AI 3종 | 엔드포인트별 위험도에 맞는 제한 |
+| Refresh Token 저장 | SHA-256 해시 (bcrypt 아닌) | DB unique index 검색 속도 우선 |
+| 토큰 회전 | refresh 시 기존 폐기 + 새 발급 | 탈취된 토큰 1회만 사용 가능 |
+| Graceful Shutdown | SIGTERM/SIGINT + 10초 타임아웃 | 배포 시 무중단 + DB 커넥션 정리 |
+| getUserId 공유 | utils/auth.ts 단일 소스 | 4개 컨트롤러 코드 중복 제거 |
+| 페이지네이션 | Prisma skip/take + count | 대량 데이터 방지 + 프론트 무한 스크롤 대비 |

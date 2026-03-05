@@ -19,8 +19,9 @@ model User {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
-  profile UserProfile?
-  trips   Trip[]
+  profile       UserProfile?
+  trips         Trip[]
+  refreshTokens RefreshToken[]
 
   @@map("users")
 }
@@ -82,6 +83,21 @@ model TripPlace {
   day TripDay @relation(fields: [tripDayId], references: [id], onDelete: Cascade)
 
   @@map("trip_places")
+}
+
+// 리프레시 토큰 (회전/폐기 지원)
+model RefreshToken {
+  id        String    @id @default(cuid())
+  userId    String    @map("user_id")
+  tokenHash String    @unique @map("token_hash")
+  expiresAt DateTime  @map("expires_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+  revokedAt DateTime? @map("revoked_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("refresh_tokens")
 }
 
 // 장소 캐시 (Google Places API 결과 저장)

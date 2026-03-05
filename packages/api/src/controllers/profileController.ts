@@ -1,15 +1,7 @@
 import { Request, Response } from 'express';
 import * as profileService from '../services/profileService';
 import { updateProfileSchema, profileCompleteSchema } from '../types/validations';
-import { AppError } from '../middlewares/errorHandler';
-
-/** 인증된 사용자 ID를 안전하게 추출 */
-function getUserId(req: Request): string {
-  if (!req.user) {
-    throw new AppError('AUTH_REQUIRED', 401, '인증이 필요합니다.');
-  }
-  return req.user.userId;
-}
+import { getUserId } from '../utils/auth';
 
 /** GET /api/v1/profile */
 export async function getProfile(req: Request, res: Response): Promise<void> {

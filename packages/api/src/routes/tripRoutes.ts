@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { authenticate } from '../middlewares/auth';
 import { asyncWrapper } from '../utils/asyncWrapper';
+import { aiLimiter } from '../middlewares/rateLimiter';
 import * as tripController from '../controllers/tripController';
 
 const router = Router();
@@ -8,8 +9,8 @@ const router = Router();
 // 모든 여행 API는 인증 필수
 router.use(authenticate);
 
-// POST   /api/v1/trips            → 여행 생성 + AI 일정 생성
-router.post('/', asyncWrapper(tripController.createTrip));
+// POST   /api/v1/trips            → 여행 생성 + AI 일정 생성 (1시간 5회 제한)
+router.post('/', aiLimiter, asyncWrapper(tripController.createTrip));
 
 // GET    /api/v1/trips            → 내 여행 목록
 router.get('/', asyncWrapper(tripController.listTrips));

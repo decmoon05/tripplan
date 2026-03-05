@@ -111,6 +111,13 @@ export const placeSearchQuerySchema = z.object({
   limit: z.coerce.number().int().min(1).max(50).default(20),
 });
 
+// ===== 페이지네이션 =====
+
+export const paginationSchema = z.object({
+  page: z.coerce.number().int().min(1).default(1),
+  limit: z.coerce.number().int().min(1).max(50).default(10),
+});
+
 // ===== 추론 타입 =====
 
 export type RegisterInput = z.infer<typeof registerSchema>;
@@ -123,3 +130,4 @@ export type UpdateTripPlacesInput = z.infer<typeof updateTripPlacesSchema>;
 export type TripIdParam = z.infer<typeof tripIdParamSchema>;
 export type PlaceIdParam = z.infer<typeof placeIdParamSchema>;
 export type PlaceSearchQuery = z.infer<typeof placeSearchQuerySchema>;
+export type PaginationInput = z.infer<typeof paginationSchema>;

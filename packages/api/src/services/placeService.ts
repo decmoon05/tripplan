@@ -94,7 +94,7 @@ export async function searchPlaces(input: PlaceSearchQuery): Promise<PlaceSearch
 
       // 검색 결과를 캐시에 비동기 저장 (실패해도 검색 결과에 영향 없음)
       cacheSearchResults(filtered).catch((err) => {
-        console.error('[PLACE_SERVICE] 검색 결과 캐싱 실패 (무시):', err);
+        console.error('[PLACE_SERVICE] 검색 결과 캐싱 실패 (무시):', err instanceof Error ? err.message : 'Unknown error');
       });
 
       return {
@@ -145,8 +145,8 @@ function buildPlaceFromCache(
   if (data.source === 'google') {
     return {
       googlePlaceId: (data.googlePlaceId as string) ?? googlePlaceId,
-      name: data.name as string,
-      category: data.category as PlaceCategory,
+      name: (data.name as string) ?? googlePlaceId,
+      category: (data.category as PlaceCategory) ?? 'attraction',
       rating: data.rating as number | undefined,
       priceLevel: data.priceLevel as 1 | 2 | 3 | 4 | undefined,
       address: data.address as string | undefined,
@@ -179,13 +179,12 @@ async function cacheSearchResults(places: Place[]): Promise<void> {
   const expiresAt = new Date();
   expiresAt.setDate(expiresAt.getDate() + 7);
 
-  await Promise.all(
-    places.map((place) =>
-      placeCacheRepo.upsert(
-        place.googlePlaceId,
-        { ...place, source: 'google' } as unknown as object,
-        expiresAt
-      )
-    )
-  );
+  // 순차 처리: Supabase Session Pooler 커넥션 풀 한도 방지
+  for (const place of places) {
+    await placeCacheRepo.upsert(
+      place.googlePlaceId,
+      { ...place, source: 'google' } as unknown as object,
+      expiresAt
+    );
+  }
 }

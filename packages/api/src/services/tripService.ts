@@ -4,7 +4,7 @@ import * as tripRepo from '../repositories/tripRepository';
 import * as placeCacheRepo from '../repositories/placeCacheRepository';
 import * as profileService from './profileService';
 import * as claudeService from './claudeService';
-import { CreateTripInput, UpdateTripPlacesInput } from '../types/validations';
+import { CreateTripInput, UpdateTripPlacesInput, PaginationInput } from '../types/validations';
 
 // ===== 접근 권한 검증 =====
 // 향후 TripMember 테이블 추가 시 이 함수만 확장하면 됨
@@ -122,21 +122,48 @@ export async function createTrip(
   );
 }
 
-// ===== 여행 목록 =====
+// ===== 여행 목록 (페이지네이션) =====
 
-export async function listTrips(userId: string): Promise<Trip[]> {
-  const trips = await tripRepo.findByUserId(userId);
+interface PaginatedTrips {
+  trips: Trip[];
+  pagination: {
+    page: number;
+    limit: number;
+    total: number;
+    totalPages: number;
+  };
+}
 
-  return trips.map((trip) => ({
-    id: trip.id,
-    destination: trip.destination,
-    startDate: trip.startDate?.toISOString(),
-    endDate: trip.endDate?.toISOString(),
-    companions: trip.companions as Trip['companions'],
-    status: trip.status as Trip['status'],
-    days: [], // 목록에서는 days 빈 배열 (상세에서 조회)
-    createdAt: trip.createdAt.toISOString(),
-  }));
+export async function listTrips(
+  userId: string,
+  pagination: PaginationInput
+): Promise<PaginatedTrips> {
+  const { page, limit } = pagination;
+  const skip = (page - 1) * limit;
+
+  const [trips, total] = await Promise.all([
+    tripRepo.findByUserId(userId, skip, limit),
+    tripRepo.countByUserId(userId),
+  ]);
+
+  return {
+    trips: trips.map((trip) => ({
+      id: trip.id,
+      destination: trip.destination,
+      startDate: trip.startDate?.toISOString(),
+      endDate: trip.endDate?.toISOString(),
+      companions: trip.companions as Trip['companions'],
+      status: trip.status as Trip['status'],
+      days: [], // 목록에서는 days 빈 배열 (상세에서 조회)
+      createdAt: trip.createdAt.toISOString(),
+    })),
+    pagination: {
+      page,
+      limit,
+      total,
+      totalPages: Math.ceil(total / limit),
+    },
+  };
 }
 
 // ===== 여행 상세 =====

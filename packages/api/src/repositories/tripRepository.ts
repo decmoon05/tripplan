@@ -76,16 +76,25 @@ export function createWithItinerary(
 }
 
 /**
- * 내 여행 목록 (최신순)
- * - days 카운트와 첫날 places만 미리보기용으로 포함
+ * 내 여행 목록 (최신순, 페이지네이션)
+ * - days 카운트 포함
  */
-export function findByUserId(userId: string) {
+export function findByUserId(userId: string, skip: number, take: number) {
   return prisma.trip.findMany({
     where: { userId },
     orderBy: { createdAt: 'desc' },
+    skip,
+    take,
     include: {
       _count: { select: { days: true } },
     },
+  });
+}
+
+/** 사용자의 여행 총 개수 */
+export function countByUserId(userId: string) {
+  return prisma.trip.count({
+    where: { userId },
   });
 }
 
