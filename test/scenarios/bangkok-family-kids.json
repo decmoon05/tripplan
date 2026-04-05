@@ -1,0 +1,32 @@
+{
+  "id": "bangkok-family-kids",
+  "name": "방콕 유아동반 가족 3일",
+  "description": "동행 적합성 테스트: 유아 포함, 바/클럽 금지, 이동 최소화",
+  "profile": {
+    "mbtiStyle": "ESFJ",
+    "lifestyle": { "morningType": "early", "stamina": "low", "adventureLevel": "cautious", "photoStyle": "casual" },
+    "foodPreference": ["no-spicy"],
+    "interests": ["culture", "shopping", "nature"],
+    "customFoodPreference": "매운 음식 불가, 아이가 먹을 수 있는 곳",
+    "customInterests": "동물원, 수족관, 워터파크",
+    "travelPace": "relaxed",
+    "budgetRange": "comfort",
+    "companion": "family-kids",
+    "specialNote": "5살 아이와 함께합니다. 이동이 짧고 아이가 즐길 수 있는 곳 위주로 부탁드립니다. 낮잠 시간(13-15시) 고려 부탁합니다.",
+    "arrivalTime": "morning",
+    "hotelArea": "수쿰빗"
+  },
+  "tripInput": {
+    "destination": "방콕",
+    "startDate": "2026-11-01",
+    "endDate": "2026-11-03"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 30,
+    "specialNoteKeywords": ["아이", "워터파크"],
+    "forbiddenCategories": ["nightlife", "bar", "club"],
+    "expectedDayCount": 3
+  }
+}

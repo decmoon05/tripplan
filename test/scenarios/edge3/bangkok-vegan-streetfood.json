@@ -1,0 +1,37 @@
+{
+  "id": "bangkok-vegan-streetfood",
+  "name": "방콕 비건 스트릿푸드 3일",
+  "description": "방콕 3일 솔로, 비건 식단 + 스트릿푸드만 요청. 태국 길거리 음식은 대부분 남플라(생선소스)/굴소스/새우장 기반이라 비건 옵션 극히 제한적. 식단 제약-목적지 충돌 테스트.",
+  "profile": {
+    "mbtiStyle": "INFP",
+    "lifestyle": {
+      "morningType": "moderate",
+      "stamina": "moderate",
+      "adventureLevel": "explorer",
+      "photoStyle": "casual"
+    },
+    "foodPreference": ["vegan", "streetfood"],
+    "interests": ["temple", "market", "street-art", "yoga"],
+    "customFoodPreference": "엄격한 비건. 생선소스, 굴소스, 새우장 모두 불가. 제(เจ) 식당이나 비건 스트릿푸드 노점 희망. 팟타이도 남플라 없는 버전만.",
+    "customInterests": "왓포, 왓아룬, 차이나타운 제(เจ) 식당, 카오산로드, 요가 스튜디오",
+    "travelPace": "moderate",
+    "budgetRange": "budget",
+    "companion": "solo",
+    "specialNote": "엄격한 비건이라 남플라(생선소스), 굴소스, 새우장 절대 불가. 태국어로 '제(เจ)' 표시된 식당/노점 찾아야 함. 일반 스트릿푸드는 거의 비건 불가능. 차이나타운/야와랏에 제 식당 밀집. 태국어 비건 설명 카드 준비 필요.",
+    "arrivalTime": "afternoon",
+    "hotelArea": "카오산로드/방람푸"
+  },
+  "tripInput": {
+    "destination": "방콕",
+    "startDate": "2026-02-10",
+    "endDate": "2026-02-12"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 30,
+    "specialNoteKeywords": ["비건", "남플라", "생선소스", "제"],
+    "forbiddenCategories": ["seafood-restaurant", "meat-bbq"],
+    "expectedDayCount": 3
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "osaka-halal-food",
+  "name": "오사카 할랄 식단 3일",
+  "description": "식단 제한 테스트: 할랄 인증 식당만, 돼지고기/술 제외",
+  "profile": {
+    "mbtiStyle": "ESFJ",
+    "lifestyle": { "morningType": "early", "stamina": "moderate", "adventureLevel": "balanced", "photoStyle": "casual" },
+    "foodPreference": ["halal"],
+    "interests": ["street-food", "shopping", "history"],
+    "customFoodPreference": "할랄 인증 식당만 가능합니다. 돼지고기, 술 절대 불가.",
+    "customInterests": "도톤보리, 오사카성",
+    "travelPace": "moderate",
+    "budgetRange": "moderate",
+    "companion": "friends",
+    "specialNote": "무슬림 친구들과 여행합니다. 모든 식당은 할랄 인증이거나 무슬림 프렌들리여야 합니다.",
+    "arrivalTime": "morning",
+    "hotelArea": "난바"
+  },
+  "tripInput": {
+    "destination": "오사카",
+    "startDate": "2026-10-05",
+    "endDate": "2026-10-07"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 30,
+    "specialNoteKeywords": ["할랄"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 3
+  }
+}

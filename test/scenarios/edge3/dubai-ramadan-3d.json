@@ -1,0 +1,37 @@
+{
+  "id": "dubai-ramadan-3d",
+  "name": "두바이 라마단 기간 3일 여행",
+  "description": "라마단 기간(3월) 두바이 3일 커플 여행. 낮 시간 공개적 음식 섭취 금지, 드레스코드 제한 등 종교적 규율이 관광에 미치는 영향을 테스트. 일몰 후 이프타르 식사 문화 체험 포함.",
+  "profile": {
+    "mbtiStyle": "ESFJ",
+    "lifestyle": {
+      "morningType": "moderate",
+      "stamina": "moderate",
+      "adventureLevel": "balanced",
+      "photoStyle": "sns"
+    },
+    "foodPreference": ["halal", "middle-eastern"],
+    "interests": ["culture", "architecture", "shopping", "desert"],
+    "customFoodPreference": "이프타르(일몰 후 식사) 체험 희망, 낮에는 호텔 내 식사만 가능",
+    "customInterests": "라마단 기간 문화 체험, 모스크 방문, 전통 시장",
+    "travelPace": "moderate",
+    "budgetRange": "comfort",
+    "companion": "couple",
+    "specialNote": "라마단 기간이라 낮에 공공장소에서 음식/음료 섭취 불가. 복장 규정 더 엄격. 일몰 후 이프타르 뷔페 예약 필수. 금요일은 대부분 상점 오후에만 오픈.",
+    "arrivalTime": "morning",
+    "hotelArea": "다운타운 두바이"
+  },
+  "tripInput": {
+    "destination": "두바이",
+    "startDate": "2026-03-15",
+    "endDate": "2026-03-17"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 50,
+    "specialNoteKeywords": ["라마단", "이프타르", "복장", "일몰"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 3
+  }
+}

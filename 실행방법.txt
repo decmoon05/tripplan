@@ -1,0 +1,8 @@
+
+                                                                                    실행 순서                                                                          
+  1. Docker Desktop 실행 (Supabase가 Docker 위에서 돌아감)                        
+  2. npx supabase start        ← DB 서버 올림 (이미 떠있으면 안 해도 됨)          
+  3. npm run dev               ← 앱 서버 올림                                     
+  4. 브라우저에서 http://localhost:3000 접속 
+
+npx supabase db reset      db리셋 및 적용

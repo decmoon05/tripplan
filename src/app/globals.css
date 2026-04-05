@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #0a0a0a;
+  --color-foreground: #ffffff;
+  --color-primary: #f97316;
+  --color-primary-hover: #ea580c;
+  --color-primary-light: rgba(249, 115, 22, 0.1);
+  --color-secondary: #151515;
+  --color-accent: #3b82f6;
+  --color-surface: #151515;
+  --color-muted: rgba(255, 255, 255, 0.4);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: rgba(249, 115, 22, 0.3);
+}
+
+/* ─── Print / PDF Styles ──────────────────────────────────────────────────── */
+@media print {
+  /* Hide non-essential UI */
+  header,
+  aside,
+  nav,
+  .print-hide,
+  button,
+  [data-print-hide] {
+    display: none !important;
+  }
+
+  /* Reset body for print */
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+  }
+
+  /* Show main content only */
+  main {
+    overflow: visible !important;
+    padding: 1cm !important;
+    max-width: 100% !important;
+    flex: none !important;
+  }
+
+  .print-show {
+    display: block !important;
+  }
+
+  /* Page breaks */
+  .day-column {
+    page-break-inside: avoid;
+  }
+
+  /* Cards */
+  .bg-white {
+    box-shadow: none !important;
+    border: 1px solid #e5e5e5 !important;
+  }
+
+  /* Timeline card text */
+  .text-black\/40 {
+    color: #666 !important;
+  }
+
+  /* Map */
+  .md\:block {
+    display: none !important;
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "tokyo-disneyland-only",
+  "name": "도쿄 디즈니랜드만 3일",
+  "description": "도쿄 3일 가족 여행인데 디즈니랜드/디즈니씨만 3일 내내 요청. 도쿄라는 대도시에서 테마파크 한 곳만 반복 방문하는 극단적 단일목적 여행 테스트.",
+  "profile": {
+    "mbtiStyle": "ESFP",
+    "lifestyle": {
+      "morningType": "early",
+      "stamina": "high",
+      "adventureLevel": "balanced",
+      "photoStyle": "sns"
+    },
+    "foodPreference": ["kid-friendly", "snack"],
+    "interests": ["theme-park", "character-meet", "parade", "fireworks"],
+    "customFoodPreference": "파크 내 레스토랑만 이용, 아이가 편식이 심해 카레/치킨너겟/핫도그 위주",
+    "customInterests": "디즈니랜드와 디즈니씨만 방문할 것. 다른 도쿄 관광지 불필요.",
+    "travelPace": "active",
+    "budgetRange": "comfort",
+    "companion": "family-kids",
+    "specialNote": "3일 모두 디즈니 리조트에서만 보내고 싶음. 1일차 디즈니랜드, 2일차 디즈니씨, 3일차 다시 디즈니랜드. 파크 오픈(8시) 전 도착, 불꽃놀이(21시) 후 퇴장. 아이(5세, 7세) 동반으로 키 제한 어트랙션 확인 필요. 프리미어 액세스(유료 패스트패스) 활용.",
+    "arrivalTime": "morning",
+    "hotelArea": "마이하마/디즈니 리조트 근처"
+  },
+  "tripInput": {
+    "destination": "도쿄",
+    "startDate": "2026-04-05",
+    "endDate": "2026-04-07"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 30,
+    "specialNoteKeywords": ["디즈니랜드", "디즈니씨", "아이", "어트랙션"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 3
+  }
+}

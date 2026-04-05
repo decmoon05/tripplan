@@ -1,0 +1,37 @@
+{
+  "id": "vietnam-7day-multi-city",
+  "name": "베트남 7일 다도시 (장기+복잡)",
+  "description": "하노이-하롱베이-호이안-호치민 다도시 일정",
+  "profile": {
+    "mbtiStyle": "ENTJ",
+    "lifestyle": {
+      "morningType": "early",
+      "stamina": "high",
+      "adventureLevel": "explorer",
+      "photoStyle": "sns"
+    },
+    "foodPreference": [],
+    "interests": ["history", "street-food", "nature", "photography"],
+    "customFoodPreference": "쌀국수, 반미, 분짜 등 현지식 위주",
+    "customInterests": "하롱베이 크루즈, 호이안 올드타운, 구찌터널",
+    "travelPace": "active",
+    "budgetRange": "budget",
+    "companion": "friends",
+    "specialNote": "하노이→하롱베이→호이안→호치민 순서로 이동합니다. 국내선 비행기와 기차를 혼합해서 이동할 예정입니다.",
+    "arrivalTime": "morning",
+    "hotelArea": ""
+  },
+  "tripInput": {
+    "destination": "하노이",
+    "startDate": "2026-12-01",
+    "endDate": "2026-12-07"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 1500,
+    "specialNoteKeywords": ["하롱베이", "호이안", "호치민"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 7
+  }
+}

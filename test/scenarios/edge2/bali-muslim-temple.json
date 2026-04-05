@@ -1,0 +1,37 @@
+{
+  "id": "bali-muslim-temple",
+  "name": "발리 3일 무슬림 여행자 힌두사원",
+  "description": "무슬림 여행자가 발리의 힌두사원 방문을 요청. 종교적 적합성과 에티켓, 할랄 식사 등 고려 필요. 사원 방문 자체는 가능하나 복장 규정과 예절 안내 필수.",
+  "profile": {
+    "mbtiStyle": "ISFP",
+    "lifestyle": {
+      "morningType": "early",
+      "stamina": "moderate",
+      "adventureLevel": "balanced",
+      "photoStyle": "casual"
+    },
+    "foodPreference": ["halal", "local-food"],
+    "interests": ["temple", "culture", "beach", "nature"],
+    "customFoodPreference": "할랄 인증 식당만 가능합니다. 돼지고기/주류 완전 배제.",
+    "customInterests": "발리 힌두사원 건축이 너무 아름다워서 꼭 방문하고 싶어요",
+    "travelPace": "moderate",
+    "budgetRange": "moderate",
+    "companion": "couple",
+    "specialNote": "무슬림 여행자. 할랄 식사 필수(돼지고기, 주류 완전 배제). 힌두사원 방문 희망 — 관광객 입장은 가능하나 복장 규정(사롱 착용, 어깨/무릎 가림), 생리 중 입장 제한 등 에티켓 안내 필요. 기도 시간 고려한 일정 편성. 할랄 식당 밀집 지역 정보 포함.",
+    "arrivalTime": "morning",
+    "hotelArea": "우붓"
+  },
+  "tripInput": {
+    "destination": "발리",
+    "startDate": "2026-07-10",
+    "endDate": "2026-07-12"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 50,
+    "specialNoteKeywords": ["할랄", "무슬림", "사원", "에티켓"],
+    "forbiddenCategories": ["bar", "pub"],
+    "expectedDayCount": 3
+  }
+}

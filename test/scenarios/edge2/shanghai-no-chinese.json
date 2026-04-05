@@ -1,0 +1,37 @@
+{
+  "id": "shanghai-no-chinese",
+  "name": "상하이 3일 중국어 불가 솔로",
+  "description": "중국어를 전혀 못하는 솔로 여행자의 상하이 3일. 영어 소통 가능한 장소 위주 요청. 언어 장벽 대응 팁과 영어 친화적 관광지/식당 중심.",
+  "profile": {
+    "mbtiStyle": "INTP",
+    "lifestyle": {
+      "morningType": "late",
+      "stamina": "high",
+      "adventureLevel": "explorer",
+      "photoStyle": "casual"
+    },
+    "foodPreference": ["local-food", "street-food"],
+    "interests": ["architecture", "history", "nightlife"],
+    "customFoodPreference": "로컬 음식 먹고 싶은데 메뉴판 못 읽어요",
+    "customInterests": "영어만 통하는 곳 위주로 추천해주세요. 중국어 1도 모릅니다.",
+    "travelPace": "active",
+    "budgetRange": "moderate",
+    "companion": "solo",
+    "specialNote": "중국어 전혀 불가. 영어 소통 가능한 관광지, 식당, 교통수단 위주로 추천. 번역 앱 활용 팁, 사전 준비 문구 등 언어 장벽 대응책 포함 필요. 위챗페이/알리페이 없이 현금/카드만 사용 가능.",
+    "arrivalTime": "afternoon",
+    "hotelArea": "푸동"
+  },
+  "tripInput": {
+    "destination": "상하이",
+    "startDate": "2026-05-15",
+    "endDate": "2026-05-17"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 40,
+    "specialNoteKeywords": ["영어", "언어", "소통", "번역"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 3
+  }
+}

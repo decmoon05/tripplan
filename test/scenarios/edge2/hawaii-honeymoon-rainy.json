@@ -1,0 +1,37 @@
+{
+  "id": "hawaii-honeymoon-rainy",
+  "name": "하와이 허니문 우기 3일",
+  "description": "11월 우기 하와이 허니문. 럭셔리 커플이지만 비 올 때 대안 일정이 핵심. 우천 시 실내 활동과 맑은 날 야외 활동 분리 필요.",
+  "profile": {
+    "mbtiStyle": "ISFJ",
+    "lifestyle": {
+      "morningType": "moderate",
+      "stamina": "moderate",
+      "adventureLevel": "balanced",
+      "photoStyle": "sns"
+    },
+    "foodPreference": ["seafood", "fine-dining"],
+    "interests": ["beach", "spa", "sunset", "snorkeling"],
+    "customFoodPreference": "허니문 특별 디너 코스 원해요",
+    "customInterests": "비 오면 어떡하죠? 우천 대비 실내 플랜 꼭 넣어주세요",
+    "travelPace": "relaxed",
+    "budgetRange": "luxury",
+    "companion": "couple",
+    "specialNote": "신혼여행이라 로맨틱한 분위기 중요. 11월 우기라 비 올 확률 높음. 우천 시 실내 대안(스파, 쇼핑, 박물관) 반드시 포함. 야외 활동은 날씨 좋을 때 집중 배치.",
+    "arrivalTime": "morning",
+    "hotelArea": "와이키키"
+  },
+  "tripInput": {
+    "destination": "하와이",
+    "startDate": "2026-11-10",
+    "endDate": "2026-11-12"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 80,
+    "specialNoteKeywords": ["우천", "실내", "스파", "로맨틱"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 3
+  }
+}

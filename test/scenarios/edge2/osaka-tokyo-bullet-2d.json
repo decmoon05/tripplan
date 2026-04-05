@@ -1,0 +1,37 @@
+{
+  "id": "osaka-tokyo-bullet-2d",
+  "name": "오사카+도쿄 2일 신칸센 초빡빡",
+  "description": "오사카와 도쿄를 단 2일에 모두 커버하려는 초빡빡 일정. 신칸센 이동시간(2시간30분) 포함하면 실질 관광시간 극히 제한. 현실적 일정 조정 필요.",
+  "profile": {
+    "mbtiStyle": "ENTJ",
+    "lifestyle": {
+      "morningType": "early",
+      "stamina": "high",
+      "adventureLevel": "explorer",
+      "photoStyle": "minimal"
+    },
+    "foodPreference": ["ramen", "sushi", "takoyaki"],
+    "interests": ["shopping", "landmark", "street-food"],
+    "customFoodPreference": "오사카 타코야키 + 도쿄 스시 필수",
+    "customInterests": "도톤보리, 신주쿠, 아키하바라 다 가고 싶어요",
+    "travelPace": "active",
+    "budgetRange": "moderate",
+    "companion": "solo",
+    "specialNote": "2일간 오사카+도쿄 모두 방문. 신칸센 이동 편도 2시간30분 소요. 실질 관광 가능 시간이 매우 제한적임을 안내. 하루는 오사카 집중, 하루는 도쿄 집중으로 분리 권장. 신칸센 예약 타이밍, JR패스 활용 여부 포함.",
+    "arrivalTime": "morning",
+    "hotelArea": ""
+  },
+  "tripInput": {
+    "destination": "오사카, 도쿄",
+    "startDate": "2026-09-12",
+    "endDate": "2026-09-13"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": "shinkansen",
+    "geoBoundaryKm": 600,
+    "specialNoteKeywords": ["신칸센", "이동", "빡빡", "시간"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 2
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "busan-relaxed-low-stamina",
+  "name": "부산 느긋한 저체력 3일",
+  "description": "페이스/체력 테스트: 저체력, 느린 페이스, 하루 3-4개 활동 이내",
+  "profile": {
+    "mbtiStyle": "INFP",
+    "lifestyle": { "morningType": "late", "stamina": "low", "adventureLevel": "cautious", "photoStyle": "casual" },
+    "foodPreference": [],
+    "interests": ["cafe", "beach", "photography"],
+    "customFoodPreference": "",
+    "customInterests": "해운대 카페, 감천문화마을 사진",
+    "travelPace": "relaxed",
+    "budgetRange": "moderate",
+    "companion": "couple",
+    "specialNote": "체력이 약해서 하루에 3-4곳만 방문하고 싶습니다. 카페에서 쉬는 시간도 넣어주세요.",
+    "arrivalTime": "afternoon",
+    "hotelArea": "해운대"
+  },
+  "tripInput": {
+    "destination": "부산",
+    "startDate": "2026-05-15",
+    "endDate": "2026-05-17"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 30,
+    "specialNoteKeywords": ["카페", "해운대"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 3
+  }
+}

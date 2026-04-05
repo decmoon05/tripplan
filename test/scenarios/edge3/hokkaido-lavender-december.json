@@ -1,0 +1,37 @@
+{
+  "id": "hokkaido-lavender-december",
+  "name": "홋카이도 12월 라벤더 여행 (계절 불일치)",
+  "description": "홋카이도 12월 라벤더 감상 요청이지만 라벤더 시즌은 7-8월. 12월은 폭설/영하 기온. 계절-목적 불일치 엣지케이스 테스트. 대안(겨울 축제, 온천 등) 제시 필요.",
+  "profile": {
+    "mbtiStyle": "ISFP",
+    "lifestyle": {
+      "morningType": "moderate",
+      "stamina": "moderate",
+      "adventureLevel": "balanced",
+      "photoStyle": "sns"
+    },
+    "foodPreference": ["seafood", "ramen", "dairy"],
+    "interests": ["lavender", "flower-field", "nature", "photography"],
+    "customFoodPreference": "홋카이도 해산물(게, 성게, 연어), 후라노 멜론, 아사히카와 라멘",
+    "customInterests": "후라노 팜 도미타 라벤더밭, 비에이 패치워크 로드, 꽃밭 사진 촬영",
+    "travelPace": "relaxed",
+    "budgetRange": "moderate",
+    "companion": "couple",
+    "specialNote": "라벤더를 보러 홋카이도에 가고 싶은데 12월밖에 시간이 안 됨. 라벤더 시즌은 7-8월이라 12월에는 눈밭일 것. 겨울 대안 활동도 괜찮지만 라벤더가 메인 목적. 온실 라벤더라도 볼 수 있는지 확인 필요.",
+    "arrivalTime": "morning",
+    "hotelArea": "후라노"
+  },
+  "tripInput": {
+    "destination": "홋카이도",
+    "startDate": "2026-12-20",
+    "endDate": "2026-12-22"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 80,
+    "specialNoteKeywords": ["라벤더", "12월", "겨울", "시즌"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 3
+  }
+}

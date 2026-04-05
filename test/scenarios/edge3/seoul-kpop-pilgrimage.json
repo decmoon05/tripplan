@@ -1,0 +1,37 @@
+{
+  "id": "seoul-kpop-pilgrimage",
+  "name": "서울 K-POP 성지순례 3일",
+  "description": "서울 3일 친구 여행, BTS/BLACKPINK 등 K-POP 관련 장소만 집중 방문 요청. 팬덤 특화 여행으로 일반 관광지 배제, 엔터사/뮤직비디오 촬영지/굿즈샵 위주 동선 테스트.",
+  "profile": {
+    "mbtiStyle": "ESFP",
+    "lifestyle": {
+      "morningType": "moderate",
+      "stamina": "high",
+      "adventureLevel": "explorer",
+      "photoStyle": "sns"
+    },
+    "foodPreference": ["korean", "cafe", "streetfood"],
+    "interests": ["kpop", "idol", "fan-goods", "photo-spot"],
+    "customFoodPreference": "아이돌이 방문한 맛집/카페 위주. BT21 카페, 연예인 단골 식당.",
+    "customInterests": "하이브 사옥, YG/JYP 사옥, 뮤직뱅크 출근길, 앨범 촬영지, K-POP 굿즈샵, 팬카페, 뮤직비디오 촬영 장소",
+    "travelPace": "active",
+    "budgetRange": "moderate",
+    "companion": "friends",
+    "specialNote": "K-POP 팬 3명이 함께하는 성지순례 여행. BTS 관련(하이브 인사이트, 용산 하이브 사옥, 뮤비 촬영지), BLACKPINK 관련(YG 사옥, 촬영지). 음악방송 공개방청 신청 희망. 홍대/강남 K-POP 굿즈샵 필수. 일반 관광(경복궁, N서울타워 등)은 관심 없음.",
+    "arrivalTime": "morning",
+    "hotelArea": "홍대/마포"
+  },
+  "tripInput": {
+    "destination": "서울",
+    "startDate": "2026-07-10",
+    "endDate": "2026-07-12"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 30,
+    "specialNoteKeywords": ["K-POP", "BTS", "BLACKPINK", "굿즈", "성지순례"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 3
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "kyoto-autumn-august",
+  "name": "교토 단풍+8월 (계절 불일치)",
+  "description": "8월에 단풍을 보고 싶다",
+  "profile": {
+    "mbtiStyle": "INFJ",
+    "lifestyle": {
+      "morningType": "early",
+      "stamina": "moderate",
+      "adventureLevel": "balanced",
+      "photoStyle": "sns"
+    },
+    "foodPreference": [],
+    "interests": ["nature", "temple", "photography"],
+    "customFoodPreference": "",
+    "customInterests": "단풍, 아라시야마 대나무숲",
+    "travelPace": "relaxed",
+    "budgetRange": "moderate",
+    "companion": "couple",
+    "specialNote": "단풍이 절정인 시기에 맞춰 갑니다. 단풍 명소 위주로 짜주세요.",
+    "arrivalTime": "morning",
+    "hotelArea": "기온"
+  },
+  "tripInput": {
+    "destination": "교토",
+    "startDate": "2026-08-10",
+    "endDate": "2026-08-12"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 30,
+    "specialNoteKeywords": ["단풍"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 3
+  }
+}

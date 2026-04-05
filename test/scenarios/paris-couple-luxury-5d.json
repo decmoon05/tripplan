@@ -1,0 +1,32 @@
+{
+  "id": "paris-couple-luxury-5d",
+  "name": "파리 커플 럭셔리 5일",
+  "description": "예산 테스트: 럭셔리 예산에 맞는 고급 레스토랑/호텔 추천 + EUR 통화",
+  "profile": {
+    "mbtiStyle": "INFP",
+    "lifestyle": { "morningType": "late", "stamina": "moderate", "adventureLevel": "balanced", "photoStyle": "sns" },
+    "foodPreference": [],
+    "interests": ["art", "architecture", "wine", "shopping"],
+    "customFoodPreference": "프렌치 파인다이닝",
+    "customInterests": "미슐랭 레스토랑, 와인바, 앤티크 쇼핑",
+    "travelPace": "relaxed",
+    "budgetRange": "luxury",
+    "companion": "couple",
+    "specialNote": "기념일 여행입니다. 에펠탑 뷰 레스토랑, 세느강 디너 크루즈 포함해주세요. 미슐랭 1스타 이상 1곳 포함 부탁드립니다.",
+    "arrivalTime": "morning",
+    "hotelArea": "마레 지구"
+  },
+  "tripInput": {
+    "destination": "파리",
+    "startDate": "2026-09-20",
+    "endDate": "2026-09-24"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 30,
+    "specialNoteKeywords": ["에펠탑", "크루즈", "미슐랭"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 5
+  }
+}

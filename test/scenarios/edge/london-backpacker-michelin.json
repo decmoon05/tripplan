@@ -1,0 +1,37 @@
+{
+  "id": "london-backpacker-michelin",
+  "name": "런던 최저예산+미슐랭 (예산 모순)",
+  "description": "backpacking 예산인데 미슐랭 레스토랑 요청",
+  "profile": {
+    "mbtiStyle": "ENTP",
+    "lifestyle": {
+      "morningType": "late",
+      "stamina": "high",
+      "adventureLevel": "explorer",
+      "photoStyle": "sns"
+    },
+    "foodPreference": [],
+    "interests": ["local-food", "history", "art"],
+    "customFoodPreference": "미슐랭 3스타 레스토랑",
+    "customInterests": "",
+    "travelPace": "active",
+    "budgetRange": "backpacking",
+    "companion": "solo",
+    "specialNote": "미슐랭 3스타 레스토랑을 꼭 가고 싶습니다. 예산은 최소한으로 유지해주세요.",
+    "arrivalTime": "morning",
+    "hotelArea": ""
+  },
+  "tripInput": {
+    "destination": "런던",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-03"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 30,
+    "specialNoteKeywords": ["미슐랭"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 3
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "tokyo-quiet-shibuya",
+  "name": "도쿄 조용한곳+시부야호텔 (모순)",
+  "description": "조용한 곳만 원하면서 호텔은 시부야",
+  "profile": {
+    "mbtiStyle": "INFP",
+    "lifestyle": {
+      "morningType": "late",
+      "stamina": "low",
+      "adventureLevel": "cautious",
+      "photoStyle": "minimal"
+    },
+    "foodPreference": [],
+    "interests": ["nature", "temple", "cafe"],
+    "customFoodPreference": "",
+    "customInterests": "조용한 정원, 사찰",
+    "travelPace": "relaxed",
+    "budgetRange": "moderate",
+    "companion": "solo",
+    "specialNote": "번화가는 절대 싫습니다. 조용하고 한적한 곳만 가고 싶어요. 사람 많은 곳 제외해주세요.",
+    "arrivalTime": "afternoon",
+    "hotelArea": "시부야"
+  },
+  "tripInput": {
+    "destination": "도쿄",
+    "startDate": "2026-09-10",
+    "endDate": "2026-09-12"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 40,
+    "specialNoteKeywords": ["조용", "정원", "사찰"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 3
+  }
+}

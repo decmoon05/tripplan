@@ -1,0 +1,37 @@
+{
+  "id": "rome-celiac-gluten",
+  "name": "로마 4일 셀리악병 글루텐프리",
+  "description": "셀리악병 환자의 로마 4일 커플 여행. 파스타와 피자의 나라에서 글루텐프리 식사만 가능. 글루텐프리 전문 식당 및 대안 메뉴 필수.",
+  "profile": {
+    "mbtiStyle": "ENFP",
+    "lifestyle": {
+      "morningType": "early",
+      "stamina": "moderate",
+      "adventureLevel": "balanced",
+      "photoStyle": "sns"
+    },
+    "foodPreference": ["gluten-free", "italian"],
+    "interests": ["history", "art", "museum", "shopping"],
+    "customFoodPreference": "셀리악병이라 글루텐 절대 불가. 글루텐프리 파스타/피자 가능한 식당만 추천해주세요.",
+    "customInterests": "바티칸, 콜로세움 등 주요 관광지 포함",
+    "travelPace": "moderate",
+    "budgetRange": "comfort",
+    "companion": "couple",
+    "specialNote": "셀리악병(Celiac disease)으로 글루텐 완전 배제 필수. 이탈리아는 글루텐프리 인식이 높은 편이니 senza glutine 인증 식당 위주 추천. 교차오염 주의 식당 정보 포함. 이탈리아어로 알레르기 설명 카드 문구 포함.",
+    "arrivalTime": "morning",
+    "hotelArea": "테르미니역 근처"
+  },
+  "tripInput": {
+    "destination": "로마",
+    "startDate": "2026-04-20",
+    "endDate": "2026-04-23"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 25,
+    "specialNoteKeywords": ["글루텐", "셀리악", "gluten-free", "알레르기"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 4
+  }
+}

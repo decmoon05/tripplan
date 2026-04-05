@@ -1,0 +1,32 @@
+{
+  "id": "tokyo-solo-3d",
+  "name": "도쿄 솔로 3일",
+  "description": "Baseline: 혼자 도쿄 3일, 보통 페이스, 애니메이션+맛집 관심",
+  "profile": {
+    "mbtiStyle": "ENFP",
+    "lifestyle": { "morningType": "moderate", "stamina": "moderate", "adventureLevel": "balanced", "photoStyle": "casual" },
+    "foodPreference": [],
+    "interests": ["anime", "street-food", "history"],
+    "customFoodPreference": "",
+    "customInterests": "",
+    "travelPace": "moderate",
+    "budgetRange": "moderate",
+    "companion": "solo",
+    "specialNote": "",
+    "arrivalTime": "morning",
+    "hotelArea": "신주쿠"
+  },
+  "tripInput": {
+    "destination": "도쿄",
+    "startDate": "2026-05-01",
+    "endDate": "2026-05-03"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 30,
+    "specialNoteKeywords": [],
+    "forbiddenCategories": [],
+    "expectedDayCount": 3
+  }
+}

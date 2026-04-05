@@ -1,0 +1,37 @@
+{
+  "id": "taiwan-seafood-allergy-nightmarket",
+  "name": "대만 해산물알레르기+야시장 (식단 제약)",
+  "description": "해산물 알레르기인데 야시장 중심 여행",
+  "profile": {
+    "mbtiStyle": "ESFP",
+    "lifestyle": {
+      "morningType": "late",
+      "stamina": "high",
+      "adventureLevel": "explorer",
+      "photoStyle": "sns"
+    },
+    "foodPreference": ["no-seafood"],
+    "interests": ["street-food", "nightlife", "shopping"],
+    "customFoodPreference": "해산물 심한 알레르기입니다. 새우, 조개, 생선 전부 불가. 교차오염도 위험합니다.",
+    "customInterests": "스린야시장, 라오허야시장, 지우펀",
+    "travelPace": "active",
+    "budgetRange": "budget",
+    "companion": "friends",
+    "specialNote": "야시장 투어가 메인입니다. 하지만 해산물 알레르기가 심해서 안전한 음식만 추천해주세요.",
+    "arrivalTime": "afternoon",
+    "hotelArea": "시먼딩"
+  },
+  "tripInput": {
+    "destination": "타이베이",
+    "startDate": "2026-11-20",
+    "endDate": "2026-11-22"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 30,
+    "specialNoteKeywords": ["야시장", "해산물"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 3
+  }
+}

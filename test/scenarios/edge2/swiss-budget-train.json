@@ -1,0 +1,37 @@
+{
+  "id": "swiss-budget-train",
+  "name": "스위스 5일 최저예산 기차여행",
+  "description": "세계 최고 물가 국가 스위스에서 백패킹 최저예산 기차여행 5일. 스위스트래블패스, 호스텔, 슈퍼마켓 식사 등 극한 절약 전략 필요.",
+  "profile": {
+    "mbtiStyle": "ENTP",
+    "lifestyle": {
+      "morningType": "early",
+      "stamina": "high",
+      "adventureLevel": "explorer",
+      "photoStyle": "sns"
+    },
+    "foodPreference": ["budget-meal", "supermarket"],
+    "interests": ["train", "mountain", "lake", "hiking"],
+    "customFoodPreference": "식당은 너무 비싸니까 슈퍼마켓/케밥집 위주로요",
+    "customInterests": "기차 타고 알프스 경치 보는 게 목표. 융프라우, 인터라켄 가고 싶어요",
+    "travelPace": "active",
+    "budgetRange": "backpacking",
+    "companion": "solo",
+    "specialNote": "스위스 물가가 세계 최고 수준이라 백패킹 예산으로는 극한 절약 필요. 스위스트래블패스 vs 개별 티켓 비교, 호스텔/에어비앤비 추천, Coop/Migros 슈퍼마켓 활용, 무료 관광지(하이킹 트레일, 호수), 물 리필 스팟 등 절약 팁 필수. 하루 예산 80CHF 이하 목표.",
+    "arrivalTime": "morning",
+    "hotelArea": ""
+  },
+  "tripInput": {
+    "destination": "스위스",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-05"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": "train",
+    "geoBoundaryKm": 300,
+    "specialNoteKeywords": ["예산", "절약", "기차", "패스"],
+    "forbiddenCategories": ["fine-dining", "luxury-hotel"],
+    "expectedDayCount": 5
+  }
+}

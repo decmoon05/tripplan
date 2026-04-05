@@ -1,0 +1,37 @@
+{
+  "id": "osaka-midnight-ramen",
+  "name": "오사카 심야 라멘 투어 2일",
+  "description": "오사카 2일 친구 여행, 23시~03시 심야 라멘 투어 요청. 심야 영업 식당 탐색, 야행성 일정, 대중교통 종료 후 이동 문제 테스트.",
+  "profile": {
+    "mbtiStyle": "ENTP",
+    "lifestyle": {
+      "morningType": "late",
+      "stamina": "high",
+      "adventureLevel": "explorer",
+      "photoStyle": "sns"
+    },
+    "foodPreference": ["ramen", "izakaya", "streetfood"],
+    "interests": ["nightlife", "food-tour", "neon-street", "bar-hopping"],
+    "customFoodPreference": "심야 영업 라멘집 위주. 돈코츠, 츠케멘, 마제소바 등 다양한 스타일 희망. 줄 서서 먹는 맛집 OK.",
+    "customInterests": "도톤보리 야경, 심야 이자카야, 신세카이 네온, 새벽 라멘 순례",
+    "travelPace": "active",
+    "budgetRange": "budget",
+    "companion": "friends",
+    "specialNote": "주요 활동 시간이 23시~03시. 오사카 지하철 종전(자정경) 이후 이동은 택시 또는 도보. 낮에는 숙소에서 수면. 오후 늦게 기상 후 활동 시작. 도톤보리/난바 근처 숙소 필수. 종전 후 귀가 동선 고려 필요.",
+    "arrivalTime": "evening",
+    "hotelArea": "난바/도톤보리"
+  },
+  "tripInput": {
+    "destination": "오사카",
+    "startDate": "2026-06-13",
+    "endDate": "2026-06-14"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 20,
+    "specialNoteKeywords": ["심야", "라멘", "종전", "새벽"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 2
+  }
+}

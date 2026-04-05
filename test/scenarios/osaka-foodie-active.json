@@ -1,0 +1,32 @@
+{
+  "id": "osaka-foodie-active",
+  "name": "오사카 식도락 활동적 4일",
+  "description": "활동/식사 테스트: 하루 6-7곳, 식사 3끼+간식, 높은 체력",
+  "profile": {
+    "mbtiStyle": "ENFJ",
+    "lifestyle": { "morningType": "early", "stamina": "high", "adventureLevel": "explorer", "photoStyle": "sns" },
+    "foodPreference": [],
+    "interests": ["street-food", "local-food", "market", "nightlife"],
+    "customFoodPreference": "타코야키, 오코노미야키, 쿠시카츠, 라멘, 스시 전부 먹고 싶음",
+    "customInterests": "쿠로몬 시장, 도톤보리, 신세카이",
+    "travelPace": "active",
+    "budgetRange": "moderate",
+    "companion": "friends",
+    "specialNote": "먹방 여행입니다. 아침-점심-간식-저녁-야식 5끼 짜주세요. 맛집 웨이팅 감안해서 시간 여유있게.",
+    "arrivalTime": "morning",
+    "hotelArea": "난바"
+  },
+  "tripInput": {
+    "destination": "오사카",
+    "startDate": "2026-06-20",
+    "endDate": "2026-06-23"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 30,
+    "specialNoteKeywords": ["타코야키", "도톤보리", "맛집"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 4
+  }
+}

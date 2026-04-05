@@ -1,0 +1,37 @@
+{
+  "id": "okinawa-ski-july",
+  "name": "오키나와 7월 + 스키 요청 (계절 모순)",
+  "description": "아열대 오키나와 한여름에 스키를 요청",
+  "profile": {
+    "mbtiStyle": "ESTP",
+    "lifestyle": {
+      "morningType": "early",
+      "stamina": "high",
+      "adventureLevel": "explorer",
+      "photoStyle": "sns"
+    },
+    "foodPreference": [],
+    "interests": ["sports", "beach", "nature"],
+    "customFoodPreference": "",
+    "customInterests": "스키, 스노보드",
+    "travelPace": "active",
+    "budgetRange": "moderate",
+    "companion": "friends",
+    "specialNote": "스키/스노보드를 꼭 타고 싶습니다. 슬로프가 있는 곳 추천해주세요.",
+    "arrivalTime": "morning",
+    "hotelArea": ""
+  },
+  "tripInput": {
+    "destination": "오키나와",
+    "startDate": "2026-07-20",
+    "endDate": "2026-07-22"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 50,
+    "specialNoteKeywords": ["스키"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 3
+  }
+}

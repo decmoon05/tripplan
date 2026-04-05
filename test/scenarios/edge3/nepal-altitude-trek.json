@@ -1,0 +1,37 @@
+{
+  "id": "nepal-altitude-trek",
+  "name": "네팔 고산 트레킹 5일",
+  "description": "네팔 5일 고산 트레킹 솔로 배낭여행. 고산병 위험(3000m+), 체력 요구 높음, 산악 지형에서의 숙소/식사 제한, 허가증 필요 등 극한 조건 테스트.",
+  "profile": {
+    "mbtiStyle": "ISTP",
+    "lifestyle": {
+      "morningType": "early",
+      "stamina": "high",
+      "adventureLevel": "explorer",
+      "photoStyle": "casual"
+    },
+    "foodPreference": ["local", "vegetarian"],
+    "interests": ["trekking", "nature", "mountain", "photography"],
+    "customFoodPreference": "산장 식사(달밧, 모모) 위주, 고산에서는 선택지 제한적",
+    "customInterests": "안나푸르나 베이스캠프 트레킹, 히말라야 일출",
+    "travelPace": "active",
+    "budgetRange": "backpacking",
+    "companion": "solo",
+    "specialNote": "고산병 위험으로 하루 최대 500m 고도 상승 권장. 3000m 이상에서는 충분한 순응 시간 필요. TIMS 카드와 입산 허가증 필수. 우기(6-9월) 피할 것. 헬기 구조 보험 가입 권장.",
+    "arrivalTime": "morning",
+    "hotelArea": "카트만두 타멜"
+  },
+  "tripInput": {
+    "destination": "네팔",
+    "startDate": "2026-10-10",
+    "endDate": "2026-10-14"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 100,
+    "specialNoteKeywords": ["고산병", "트레킹", "허가증", "고도"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 5
+  }
+}

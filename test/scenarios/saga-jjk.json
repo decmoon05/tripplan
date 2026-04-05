@@ -1,0 +1,32 @@
+{
+  "id": "saga-jjk",
+  "name": "사가 + 주술회전 성지순례 (콘텐츠 불일치)",
+  "description": "모순 테스트: 사가현인데 주술회전 성지순례 요청 (실제 성지는 도쿄/센다이)",
+  "profile": {
+    "mbtiStyle": "ENTP",
+    "lifestyle": { "morningType": "late", "stamina": "high", "adventureLevel": "explorer", "photoStyle": "sns" },
+    "foodPreference": [],
+    "interests": ["anime", "photography"],
+    "customFoodPreference": "",
+    "customInterests": "주술회전 성지순례, 시부야 109, 센다이",
+    "travelPace": "active",
+    "budgetRange": "budget",
+    "companion": "friends",
+    "specialNote": "주술회전 성지순례가 메인 목적입니다. 시부야 전투 장소, 고조 사토루 관련 장소들 위주로 짜주세요.",
+    "arrivalTime": "morning",
+    "hotelArea": ""
+  },
+  "tripInput": {
+    "destination": "사가",
+    "startDate": "2026-08-15",
+    "endDate": "2026-08-17"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 30,
+    "specialNoteKeywords": ["주술회전", "성지순례"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 3
+  }
+}

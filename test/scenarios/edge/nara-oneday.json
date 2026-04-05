@@ -1,0 +1,37 @@
+{
+  "id": "nara-oneday",
+  "name": "나라 당일치기 (초단기)",
+  "description": "1일 초단기 일정 테스트",
+  "profile": {
+    "mbtiStyle": "ENFP",
+    "lifestyle": {
+      "morningType": "early",
+      "stamina": "high",
+      "adventureLevel": "explorer",
+      "photoStyle": "casual"
+    },
+    "foodPreference": [],
+    "interests": ["history", "nature", "photography"],
+    "customFoodPreference": "",
+    "customInterests": "사슴공원, 도다이지",
+    "travelPace": "active",
+    "budgetRange": "budget",
+    "companion": "solo",
+    "specialNote": "오사카에서 당일치기로 나라를 방문합니다. 아침 일찍 출발, 저녁에 오사카 복귀.",
+    "arrivalTime": "morning",
+    "hotelArea": ""
+  },
+  "tripInput": {
+    "destination": "나라",
+    "startDate": "2026-06-15",
+    "endDate": "2026-06-15"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 20,
+    "specialNoteKeywords": ["사슴", "도다이지"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 1
+  }
+}

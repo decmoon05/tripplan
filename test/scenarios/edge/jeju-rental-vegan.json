@@ -1,0 +1,37 @@
+{
+  "id": "jeju-rental-vegan",
+  "name": "제주 렌터카 + 비건 (복합 제약)",
+  "description": "렌터카 이동 + 비건 식단 동시 충족 테스트",
+  "profile": {
+    "mbtiStyle": "INFJ",
+    "lifestyle": {
+      "morningType": "moderate",
+      "stamina": "moderate",
+      "adventureLevel": "balanced",
+      "photoStyle": "sns"
+    },
+    "foodPreference": ["vegetarian"],
+    "interests": ["nature", "cafe", "photography"],
+    "customFoodPreference": "완전 비건입니다. 고기, 생선, 유제품 전부 불가.",
+    "customInterests": "비건 카페, 올레길",
+    "travelPace": "relaxed",
+    "budgetRange": "moderate",
+    "companion": "couple",
+    "specialNote": "렌터카로 이동합니다. 모든 식당은 비건 메뉴가 있어야 합니다.",
+    "arrivalTime": "morning",
+    "hotelArea": ""
+  },
+  "tripInput": {
+    "destination": "제주",
+    "startDate": "2026-05-10",
+    "endDate": "2026-05-12"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": "drive",
+    "geoBoundaryKm": 50,
+    "specialNoteKeywords": ["비건", "렌터카"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 3
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "iceland-summer-aurora",
+  "name": "아이슬란드 6월 오로라 요청",
+  "description": "6월 아이슬란드 여행에서 오로라를 보고 싶다는 요청. 하지만 6월은 백야(24시간 해가 지지 않음)라 오로라 관측이 물리적으로 불가능. 이 사실을 안내하고 대안 제시 필요.",
+  "profile": {
+    "mbtiStyle": "INFP",
+    "lifestyle": {
+      "morningType": "late",
+      "stamina": "high",
+      "adventureLevel": "explorer",
+      "photoStyle": "sns"
+    },
+    "foodPreference": ["seafood", "local-food"],
+    "interests": ["aurora", "nature", "glacier", "hot-spring"],
+    "customFoodPreference": "아이슬란드 전통 음식 체험하고 싶어요",
+    "customInterests": "오로라 꼭 보고 싶어요! 가장 잘 보이는 스팟 추천해주세요",
+    "travelPace": "active",
+    "budgetRange": "comfort",
+    "companion": "couple",
+    "specialNote": "6월 방문이라 백야(Midnight Sun) 시즌. 오로라는 9월~3월에만 관측 가능하므로 6월 관측 불가. 이 사실을 정중히 안내하고, 백야 특유의 대안 액티비티(미드나잇 선 하이킹, 골든서클, 빙하 트레킹 등) 제안. 오로라 대신 여름 한정 경험 강조.",
+    "arrivalTime": "afternoon",
+    "hotelArea": "레이캬비크"
+  },
+  "tripInput": {
+    "destination": "아이슬란드",
+    "startDate": "2026-06-15",
+    "endDate": "2026-06-20"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 200,
+    "specialNoteKeywords": ["백야", "오로라", "불가", "여름"],
+    "forbiddenCategories": ["aurora-tour"],
+    "expectedDayCount": 6
+  }
+}

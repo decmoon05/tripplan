@@ -1,0 +1,32 @@
+{
+  "id": "seoul-business-2d",
+  "name": "서울 출장 2일",
+  "description": "비즈니스 테스트: 출장 목적, 놀이공원/테마파크 제외, 효율적 동선",
+  "profile": {
+    "mbtiStyle": "ENTJ",
+    "lifestyle": { "morningType": "early", "stamina": "high", "adventureLevel": "balanced", "photoStyle": "minimal" },
+    "foodPreference": [],
+    "interests": ["business", "networking", "culture"],
+    "customFoodPreference": "접대용 고급 한식",
+    "customInterests": "강남 비즈니스 미팅 후 저녁 접대",
+    "travelPace": "active",
+    "budgetRange": "comfort",
+    "companion": "business",
+    "specialNote": "오전은 미팅이라 자유 시간이 오후부터입니다. 저녁 접대용 고급 한식당 1곳 필수. 여의도/강남 위주로.",
+    "arrivalTime": "morning",
+    "hotelArea": "강남"
+  },
+  "tripInput": {
+    "destination": "서울",
+    "startDate": "2026-04-22",
+    "endDate": "2026-04-23"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 20,
+    "specialNoteKeywords": ["접대", "한식"],
+    "forbiddenCategories": ["theme-park", "amusement"],
+    "expectedDayCount": 2
+  }
+}

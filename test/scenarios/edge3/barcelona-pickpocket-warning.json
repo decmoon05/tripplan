@@ -1,0 +1,37 @@
+{
+  "id": "barcelona-pickpocket-warning",
+  "name": "바르셀로나 소매치기 회피 솔로 여성 4일",
+  "description": "바르셀로나 4일 솔로 여성 여행자. 소매치기 다발 지역(람블라스, 지하철 등) 회피 요청. 안전 우선 동선 설계와 범죄 다발 지역 경고 테스트.",
+  "profile": {
+    "mbtiStyle": "INFJ",
+    "lifestyle": {
+      "morningType": "moderate",
+      "stamina": "moderate",
+      "adventureLevel": "cautious",
+      "photoStyle": "casual"
+    },
+    "foodPreference": ["tapas", "seafood", "wine"],
+    "interests": ["architecture", "art", "beach", "cafe"],
+    "customFoodPreference": "현지 타파스 바 위주, 관광객 덫 레스토랑 회피",
+    "customInterests": "가우디 건축, 고딕 지구, 해변 산책, 피카소 미술관",
+    "travelPace": "moderate",
+    "budgetRange": "moderate",
+    "companion": "solo",
+    "specialNote": "솔로 여성 여행자로 안전이 최우선. 람블라스 거리, 라발 지구 야간, 붐비는 지하철(L3, L1)에서 소매치기 주의. 크로스바디 백 사용. 야간(22시 이후) 혼자 외출 자제. 숙소는 에이샴플라 또는 그라시아 지구 선호. 관광 명소는 이른 아침 방문으로 인파 회피.",
+    "arrivalTime": "afternoon",
+    "hotelArea": "에이샴플라"
+  },
+  "tripInput": {
+    "destination": "바르셀로나",
+    "startDate": "2026-05-20",
+    "endDate": "2026-05-23"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 30,
+    "specialNoteKeywords": ["소매치기", "안전", "야간", "솔로"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 4
+  }
+}

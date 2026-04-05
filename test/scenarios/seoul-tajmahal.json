@@ -1,0 +1,32 @@
+{
+  "id": "seoul-tajmahal",
+  "name": "서울 + 타지마할 (지리적 모순)",
+  "description": "모순 테스트: 서울 여행인데 타지마할을 보고 싶다고 요청",
+  "profile": {
+    "mbtiStyle": "INFJ",
+    "lifestyle": { "morningType": "moderate", "stamina": "high", "adventureLevel": "explorer", "photoStyle": "sns" },
+    "foodPreference": [],
+    "interests": ["history", "architecture", "photography"],
+    "customFoodPreference": "",
+    "customInterests": "타지마할 같은 건축물",
+    "travelPace": "active",
+    "budgetRange": "moderate",
+    "companion": "solo",
+    "specialNote": "타지마할을 꼭 보고 싶습니다",
+    "arrivalTime": "morning",
+    "hotelArea": "강남"
+  },
+  "tripInput": {
+    "destination": "서울",
+    "startDate": "2026-06-10",
+    "endDate": "2026-06-11"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 30,
+    "specialNoteKeywords": ["건축", "타지마할"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 2
+  }
+}

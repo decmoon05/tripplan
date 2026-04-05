@@ -1,0 +1,37 @@
+{
+  "id": "new-york-24h-layover",
+  "name": "뉴욕 24시간 경유 초단기 여행",
+  "description": "뉴욕 1일(24시간) 비즈니스 경유. JFK 공항에서 시내 이동 포함 실질 관광 시간 매우 제한적. 초단기 일정 최적화, 공항 이동 시간 반영, 짐 보관 등 테스트.",
+  "profile": {
+    "mbtiStyle": "ENTJ",
+    "lifestyle": {
+      "morningType": "early",
+      "stamina": "high",
+      "adventureLevel": "explorer",
+      "photoStyle": "minimal"
+    },
+    "foodPreference": ["steak", "pizza", "bagel"],
+    "interests": ["landmark", "skyline", "business-district", "broadway"],
+    "customFoodPreference": "뉴욕 대표 음식 빠르게: 달러 피자, 베이글, 스테이크하우스 1회",
+    "customInterests": "타임스퀘어, 센트럴파크, 자유의 여신상(페리 시간 고려), 엠파이어스테이트 전망대",
+    "travelPace": "active",
+    "budgetRange": "moderate",
+    "companion": "business",
+    "specialNote": "JFK 도착 08:00, 다음날 JFK 출발 08:00. 실질 관광 가능 시간 약 18시간. JFK↔맨해튼 이동 각 1시간(AirTrain+지하철). 캐리어 보관(Penn Station 또는 호텔 데이유즈) 필요. 효율적 동선 최우선. 브로드웨이 당일 TKTS 할인 티켓 시도.",
+    "arrivalTime": "morning",
+    "hotelArea": "미드타운 맨해튼"
+  },
+  "tripInput": {
+    "destination": "뉴욕",
+    "startDate": "2026-09-15",
+    "endDate": "2026-09-15"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 40,
+    "specialNoteKeywords": ["24시간", "경유", "JFK", "캐리어", "효율"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 1
+  }
+}

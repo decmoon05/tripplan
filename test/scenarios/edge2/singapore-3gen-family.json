@@ -1,0 +1,37 @@
+{
+  "id": "singapore-3gen-family",
+  "name": "싱가포르 3일 3세대 가족여행",
+  "description": "할머니(70대)+부모+아이(7세) 3세대 가족의 싱가포르 3일. 각 세대별 만족도를 모두 충족하면서 이동 부담 최소화. 휠체어 불필요하나 할머니 체력 고려.",
+  "profile": {
+    "mbtiStyle": "ESFJ",
+    "lifestyle": {
+      "morningType": "early",
+      "stamina": "low",
+      "adventureLevel": "cautious",
+      "photoStyle": "casual"
+    },
+    "foodPreference": ["local-food", "kids-friendly"],
+    "interests": ["theme-park", "nature", "shopping", "cultural"],
+    "customFoodPreference": "할머니는 맵지 않은 음식, 아이는 편식이 심해요. 모두 만족하는 식당 필요.",
+    "customInterests": "아이는 동물원/워터파크 좋아하고 할머니는 너무 덥거나 많이 걷는 건 힘들어해요",
+    "travelPace": "relaxed",
+    "budgetRange": "comfort",
+    "companion": "family-kids",
+    "specialNote": "3세대 동행: 70대 할머니(걷기 30분 이상 힘듦, 에어컨 필수), 40대 부모, 7세 아이. 세대별 니즈 분리 시간대 포함(아이+부모 놀이 / 할머니 휴식). 이동거리 최소화, 택시/그랩 적극 활용. 식사는 세대 모두 수용 가능한 곳.",
+    "arrivalTime": "morning",
+    "hotelArea": "마리나베이"
+  },
+  "tripInput": {
+    "destination": "싱가포르",
+    "startDate": "2026-06-05",
+    "endDate": "2026-06-07"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 30,
+    "specialNoteKeywords": ["할머니", "아이", "3세대", "휴식"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 3
+  }
+}

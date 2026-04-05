@@ -1,0 +1,32 @@
+{
+  "id": "hokkaido-winter-ski",
+  "name": "홋카이도 겨울 스키 4일",
+  "description": "계절 테스트: 겨울 스키 + 온천 + 커플",
+  "profile": {
+    "mbtiStyle": "ESTP",
+    "lifestyle": { "morningType": "early", "stamina": "high", "adventureLevel": "explorer", "photoStyle": "sns" },
+    "foodPreference": [],
+    "interests": ["nature", "hot-spring", "sports"],
+    "customFoodPreference": "해산물 좋아함",
+    "customInterests": "스키, 스노보드, 삿포로 라멘",
+    "travelPace": "active",
+    "budgetRange": "comfort",
+    "companion": "couple",
+    "specialNote": "스키/스노보드가 메인입니다. 니세코나 후라노 스키장 포함해주세요. 저녁은 온천 + 카이세키 원합니다.",
+    "arrivalTime": "morning",
+    "hotelArea": "삿포로"
+  },
+  "tripInput": {
+    "destination": "삿포로",
+    "startDate": "2027-01-15",
+    "endDate": "2027-01-18"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 120,
+    "specialNoteKeywords": ["스키", "온천"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 4
+  }
+}

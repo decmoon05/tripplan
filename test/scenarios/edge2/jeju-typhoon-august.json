@@ -1,0 +1,37 @@
+{
+  "id": "jeju-typhoon-august",
+  "name": "제주 8월 태풍시즌 3일 가족",
+  "description": "8월 태풍시즌 제주도 가족여행 3일. 태풍/폭우 시 야외활동 불가능하므로 실내 대안 일정이 핵심. 항공편 결항 대비 정보도 필요.",
+  "profile": {
+    "mbtiStyle": "ESFP",
+    "lifestyle": {
+      "morningType": "moderate",
+      "stamina": "moderate",
+      "adventureLevel": "cautious",
+      "photoStyle": "sns"
+    },
+    "foodPreference": ["seafood", "korean", "kids-friendly"],
+    "interests": ["beach", "aquarium", "cafe", "nature"],
+    "customFoodPreference": "아이가 해산물 알레르기가 있어서 아이 메뉴 따로 있는 식당 필요",
+    "customInterests": "날씨 좋으면 바다, 비 오면 아쿠아리움이나 카페 갈게요",
+    "travelPace": "relaxed",
+    "budgetRange": "comfort",
+    "companion": "family-kids",
+    "specialNote": "8월 태풍시즌 제주 방문. 태풍/폭우 시 대비 실내 활동(아쿠아플라넷, 박물관, 키즈카페, 실내놀이터) 필수 포함. 항공편 결항 시 대처법, 렌터카 안전 운전 팁 포함. 매일 실외 플랜 A + 실내 플랜 B 병행 구성. 아이(5세) 동반이라 안전 최우선.",
+    "arrivalTime": "morning",
+    "hotelArea": "제주시"
+  },
+  "tripInput": {
+    "destination": "제주도",
+    "startDate": "2026-08-14",
+    "endDate": "2026-08-16"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 40,
+    "specialNoteKeywords": ["태풍", "실내", "대안", "안전"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 3
+  }
+}

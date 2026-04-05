@@ -1,0 +1,32 @@
+{
+  "id": "jeju-budget-backpacker-2d",
+  "name": "제주 최저예산 백패커 2일",
+  "description": "예산 테스트: 최저 예산, 게스트하우스, 대중교통, KRW 통화",
+  "profile": {
+    "mbtiStyle": "ISTP",
+    "lifestyle": { "morningType": "early", "stamina": "high", "adventureLevel": "explorer", "photoStyle": "minimal" },
+    "foodPreference": [],
+    "interests": ["nature", "hiking", "local-food"],
+    "customFoodPreference": "",
+    "customInterests": "올레길 트레킹, 로컬 흑돼지",
+    "travelPace": "active",
+    "budgetRange": "backpacking",
+    "companion": "solo",
+    "specialNote": "최소 비용으로 여행합니다. 무료 관광지 위주로 짜주세요. 버스로만 이동합니다.",
+    "arrivalTime": "morning",
+    "hotelArea": ""
+  },
+  "tripInput": {
+    "destination": "제주",
+    "startDate": "2026-04-10",
+    "endDate": "2026-04-11"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": "bus",
+    "geoBoundaryKm": 50,
+    "specialNoteKeywords": ["올레길", "무료"],
+    "forbiddenCategories": [],
+    "expectedDayCount": 2
+  }
+}

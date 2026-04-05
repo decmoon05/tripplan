@@ -1,0 +1,37 @@
+{
+  "id": "maldives-budget-impossible",
+  "name": "몰디브 배낭여행 3일 (불가능한 예산)",
+  "description": "세계 최고급 리조트 목적지인 몰디브에서 배낭여행 예산(최저가)으로 3일 여행 요청. 극단적 예산 불일치 테스트. 게스트하우스 섬(마푸시 등) 대안 제시 필요.",
+  "profile": {
+    "mbtiStyle": "ENFP",
+    "lifestyle": {
+      "morningType": "moderate",
+      "stamina": "high",
+      "adventureLevel": "explorer",
+      "photoStyle": "sns"
+    },
+    "foodPreference": ["seafood", "local"],
+    "interests": ["snorkeling", "beach", "diving", "sunset"],
+    "customFoodPreference": "현지 식당(hotaa)에서 저렴한 몰디브 현지 음식 희망. 리조트 올인클루시브는 예산 초과.",
+    "customInterests": "수상 방갈로 없이도 가능한 스노클링, 로컬 섬 체험, 샌드뱅크 투어",
+    "travelPace": "active",
+    "budgetRange": "backpacking",
+    "companion": "solo",
+    "specialNote": "몰디브를 배낭여행 예산(1일 5만원 이하)으로 여행하고 싶음. 리조트 섬 대신 로컬 섬(마푸시, 훌루말레 등) 게스트하우스 이용. 비키니 비치가 있는 섬 선호. 로컬 섬에서는 비키니 착용 제한 있음(지정 비치만 가능). 스피드보트 비용이 큰 비중 차지.",
+    "arrivalTime": "afternoon",
+    "hotelArea": "마푸시 또는 훌루말레"
+  },
+  "tripInput": {
+    "destination": "몰디브",
+    "startDate": "2026-11-01",
+    "endDate": "2026-11-03"
+  },
+  "placePreferences": [],
+  "validationConfig": {
+    "expectedTransitMode": null,
+    "geoBoundaryKm": 100,
+    "specialNoteKeywords": ["배낭여행", "예산", "로컬 섬", "게스트하우스"],
+    "forbiddenCategories": ["luxury-resort"],
+    "expectedDayCount": 3
+  }
+}
